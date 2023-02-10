@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="eaeacc0f-73db-4490-8241-9fcaebd3aaa4" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,18 +29,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/danie/Documents/GitHub/soft_uni_python_fundamental",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/Documents/GitHub/soft_uni_python_fundamental/04_functions_exercises&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental\04_functions_exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\03_lists_basic_exercises" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental" />
     </key>
   </component>
   <component name="RunManager" selected="Python.04_maximum_multiple">
