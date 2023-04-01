@@ -44,4 +44,3 @@ for planet in sorted(attacked_planets, key= lambda x: x):
 print(f"Destroyed planets: {len(destroyed_planets)}")
 for planet in sorted(destroyed_planets, key=lambda x: x):
     print(f"-> {planet}")
-
