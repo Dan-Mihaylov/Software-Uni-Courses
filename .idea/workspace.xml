@@ -33,26 +33,27 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/Documents/GitHub/Software-Uni-Courses/Advanced&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/OneDrive/Documents/GitHub/soft_uni_python_fundamental/Advanced/Lists As Stacks And Queues Tuples And Sets Exercises&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Lists As Stacks And Queues Tuples And Sets Exercises" />
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced" />
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced\Lists As Stacks And Queues Lab" />
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced\Multidimentional Lists Lab" />
       <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental\Final Exam#" />
-      <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental\11_regex_more_exercises" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Lists As Stacks And Queues Tuples And Sets Exercises" />
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced\Lists As Stacks And Queues Exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Fundamentals" />
       <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.04_maximum_multiple">
-    <configuration name="01_zeros_to_back" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.04_easter_bunny">
+    <configuration name="01_flatten_lists" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Soft-Uni Courses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -60,11 +61,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/03_lists_basics_more_exercises" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/03_lists_basics_more_exercises/01_zeros_to_back.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2/01_flatten_lists.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -73,7 +74,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="04_maximum_multiple" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="02_matrix_modifications" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Soft-Uni Courses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -81,11 +82,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/01_Basic_syntax_and_conditional_statements_exercises" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/01_Basic_syntax_and_conditional_statements_exercises/04_maximum_multiple.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2/02_matrix_modifications.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -94,7 +95,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="leetcode_common_prefix" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="04_easter_bunny" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Soft-Uni Courses" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -102,11 +103,53 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/01_Basic_Syntax_More_Exercises" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/01_Basic_Syntax_More_Exercises/leetcode_common_prefix.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2/04_easter_bunny.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="06_paint_colours" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Soft-Uni Courses" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Lists As Stacks And Queues Tuples And Sets Exercises" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Lists As Stacks And Queues Tuples And Sets Exercises/06_paint_colours.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="New" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Soft-Uni Courses" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/New.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -117,9 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.04_maximum_multiple" />
-        <item itemvalue="Python.01_zeros_to_back" />
-        <item itemvalue="Python.leetcode_common_prefix" />
+        <item itemvalue="Python.04_easter_bunny" />
+        <item itemvalue="Python.New" />
+        <item itemvalue="Python.02_matrix_modifications" />
+        <item itemvalue="Python.01_flatten_lists" />
+        <item itemvalue="Python.06_paint_colours" />
       </list>
     </recent_temporary>
   </component>
@@ -133,5 +178,21 @@
       <updated>1675354517762</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Advanced/Lists As Stacks And Queues Tuples And Sets Exercises/06_paint_colours.py</url>
+          <line>11</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2/04_easter_bunny.py</url>
+          <line>43</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
