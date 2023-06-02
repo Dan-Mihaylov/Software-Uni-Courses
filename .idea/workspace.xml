@@ -33,14 +33,14 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/danie/OneDrive/Documents/GitHub/soft_uni_python_fundamental/Advanced/Old Exam Exercises",
+    "last_opened_file_path": "C:/Users/danie/OneDrive/Documents/GitHub/soft_uni_python_fundamental/Advanced",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Old Exam Exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced" />
+      <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Old Exam Exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Exam Retake Exercises" />
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Lists As Stacks And Queues Tuples And Sets Exercises" />
@@ -53,7 +53,7 @@
       <recent name="C:\Users\danie\Documents\GitHub\soft_uni_python_fundamental" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.02_line_numbers">
+  <component name="RunManager" selected="Python.connect_four">
     <configuration name="01_exercise" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Soft-Uni Courses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -88,27 +88,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/File Handling Exercises/02_line_numbers.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="02_matrix_modifications" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Soft-Uni Courses" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Multidimentional Lists Exercise Part 2/02_matrix_modifications.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -159,13 +138,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="connect_four" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Soft-Uni Courses" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Advanced/Workshop" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Advanced/Workshop/connect_four.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.connect_four" />
         <item itemvalue="Python.02_line_numbers" />
         <item itemvalue="Python.01_exercise" />
         <item itemvalue="Python.04_easter_bunny" />
         <item itemvalue="Python.New" />
-        <item itemvalue="Python.02_matrix_modifications" />
       </list>
     </recent_temporary>
   </component>
