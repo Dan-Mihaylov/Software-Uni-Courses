@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eaeacc0f-73db-4490-8241-9fcaebd3aaa4" name="Changes" comment="" />
+    <list default="true" id="eaeacc0f-73db-4490-8241-9fcaebd3aaa4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/01_calculate_logarithm.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/02_ascii_art.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/03_triangle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/04_mathematical_operations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/05_fibonacci_sequence.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/fibonacci.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Advanced/Modules Lab/print_triangle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,21 +38,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/danie/OneDrive/Documents/GitHub/soft_uni_python_fundamental/Advanced&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+=======
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/danie/Documents/GitHub/Software-Uni-Courses/Advanced",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+>>>>>>> 3df205b66974557890f24ddb5bb41f183803c4e5
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced" />
+      <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced\Functions Advanced Exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Old Exam Exercises" />
       <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Exam Retake Exercises" />
-      <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced" />
-      <recent name="C:\Users\danie\OneDrive\Documents\GitHub\soft_uni_python_fundamental\Advanced\Lists As Stacks And Queues Tuples And Sets Exercises" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\danie\Documents\GitHub\Software-Uni-Courses\Advanced\Multidimentional Lists Exercise One" />
