@@ -17,11 +17,12 @@ while elfs_energy and materials_in_box:
     energy_spent = 0
     toys_created = 0
     reward = 0
-    counter += 1
 
     if current_elf_energy < 5:
         materials_in_box.append(current_box)
         continue
+
+    counter += 1
 
     if current_elf_energy >= current_box:
         toys_created += 1
@@ -56,8 +57,9 @@ while elfs_energy and materials_in_box:
     elfs_energy.append(current_elf_energy + reward)
 
 
-print(total_energy, total_toys)
+print(f"Toys: {total_toys}")
+print(f"Energy: {total_energy}")
 if elfs_energy:
-    print(elfs_energy)
+    print(f"Elves left: {', '.join(str(x) for x in elfs_energy)}")
 if materials_in_box:
-    print(materials_in_box)
+    print(f"Boxes left: {', '.join(str(x) for x in materials_in_box)}")

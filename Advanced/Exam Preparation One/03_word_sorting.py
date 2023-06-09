@@ -8,7 +8,6 @@ def words_sorting(*args):
         for letter in word:
             words_info[word] += ord(letter)
 
-
     sum_values = sum(words_info.values())
 
     if sum_values % 2 == 1:
