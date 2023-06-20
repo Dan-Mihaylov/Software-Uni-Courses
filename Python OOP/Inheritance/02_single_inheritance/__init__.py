@@ -1,0 +1,1 @@
+# Have to change the directory name to 03_multiple_inheritance to work
