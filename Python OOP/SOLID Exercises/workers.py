@@ -20,7 +20,8 @@ class Manager(BaseWorker):
         self.worker = None
 
     def set_worker(self, worker):
-        assert isinstance(worker, BaseWorker), '`worker` must be of type {}'.format(Worker)
+        if not isinstance(worker, BaseWorker):
+            raise AssertionError(f'`worker` must be of type {Worker}')
 
         self.worker = worker
 

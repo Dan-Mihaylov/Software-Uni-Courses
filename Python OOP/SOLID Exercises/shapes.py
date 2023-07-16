@@ -30,8 +30,8 @@ class Triangle(Shape):
 class AreaCalculator:
 
     def __init__(self, shapes):
-
-        assert isinstance(shapes, list), "`shapes` should be of type `list`."
+        if not isinstance(shapes, list):
+            raise AssertionError("`shapes` should be of type `list`.")
         self.shapes = shapes
 
     @property
@@ -43,7 +43,8 @@ class AreaCalculator:
         return total
 
 
-shapes = [Rectangle(1, 6), Triangle(2, 3)]
-calculator = AreaCalculator(shapes)
-
-print("The total area is: ", calculator.total_area)
+# shapes = [Rectangle(1, 6), Triangle(2, 3)]
+# not_shapes = {Rectangle(1, 7)}
+# calculator = AreaCalculator(shapes)
+#
+# print("The total area is: ", calculator.total_area)
