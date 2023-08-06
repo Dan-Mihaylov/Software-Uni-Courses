@@ -1,6 +1,6 @@
-# Exercises From Python Fundamental Course @ SoftUni
+# Exercises From All SoftUni Courses
 
-In this repository I will be adding the solutions to the exercises in the Python Fundamental Course at SoftUni
+In this repository I will be adding the solutions to the exercises from all the courses I have taken from SoftUni
 
 www.softuni.bg
 
