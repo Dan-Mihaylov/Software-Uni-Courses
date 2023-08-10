@@ -1,2 +1,1 @@
-I am missing Polymorphism and Abstraction Exercises and
 Static and Class Methods Exercises
