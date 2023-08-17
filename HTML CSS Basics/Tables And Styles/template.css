@@ -1,0 +1,45 @@
+.center-table {
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+caption {
+    background-color: tomato;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-collapse: collapse;
+    border-radius: 5px;
+}
+
+
+table {
+    border: solid 1px lightgray;
+    background-color: tomato;
+    border-collapse: collapse;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+table th {
+    border: solid 1px lightgray;
+    padding: 10px;
+    border-collapse: collapse;
+
+}
+
+table tr td {
+    border: solid 1px lightgray;
+    padding: 10px;
+
+}
