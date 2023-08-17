@@ -1,0 +1,1 @@
+In order for the css to work correctly, the HTML CSS Basics folder has to be marked as root.
