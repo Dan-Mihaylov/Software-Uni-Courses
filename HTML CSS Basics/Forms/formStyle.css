@@ -1,0 +1,33 @@
+body {
+    background-color:moccasin;
+}
+
+.form-div {
+    max-width: 100%;
+}
+
+form {
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+label {
+    position: relative;
+    cursor: pointer;
+    border: 0cap;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#result-div {
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    opacity: 0;
+}
