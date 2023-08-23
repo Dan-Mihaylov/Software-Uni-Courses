@@ -3,12 +3,8 @@ body {
 }
 
 .wrapper {
-    height: 100%;
     width: 100%;
     display: flex;
-    margin-top: 25%;
-    align-items: center;
-    justify-content: center;
 }
 
 .form-div {
@@ -39,4 +35,14 @@ button {
     padding: 20px;
     margin-top: 20px;
     opacity: 0;
+}
+
+.radio-div {
+    min-width: 350px;
+}
+
+.radio-div {
+    position: relative;
+    cursor: pointer;
+    border: 0cap;
 }
