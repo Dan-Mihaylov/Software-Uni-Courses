@@ -28,3 +28,41 @@ document.getElementById('confirm_button').addEventListener('click', function () 
             result_div.style.opacity = 0;
         });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const confirmButton = document.getElementById('confirm-selection-btn');
+    const displayResult = document.getElementById('display-radio-res');
+
+    confirmButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const selectedRadio = document.querySelector('.radio:checked');
+        const radioResult = document.getElementById('radio-result');
+
+        if (selectedRadio.title === "correct") {
+            radioResult.style.opacity = 1;
+            displayResult.innerHTML = `You have selected: ${selectedRadio.value}<br>
+            Your answer is <b style="color:green;">Correct</b>!`;
+        } else if (selectedRadio.title !== "correct") {
+            radioResult.style.opacity = 1;
+            displayResult.innerHTML = `You have selected: ${selectedRadio.value}<br>
+            Your answer is <b style="color:darkred;">Wrong</b>!`;
+        } else {
+            radioResult.style.opacity = 1;
+            displayResult.textContent = 'Please select an answer.';
+        }
+    });
+});
+
+    document.getElementById('clear-radio').addEventListener('click', function () {
+        const result_div = document.getElementById('radio-result');
+        const resultText = document.getElementById('display-radio-res');
+        const radioInputs = document.querySelectorAll('.radio');
+        result_div.style.opacity = 0;
+        resultText.textContent = ''
+
+        radioInputs.forEach(function(radio) {
+            radio.checked = false;
+        });
+
+    });

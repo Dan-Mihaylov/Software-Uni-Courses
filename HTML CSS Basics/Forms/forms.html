@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title lang="en">Forms</title>
     <link rel="stylesheet" href="formStyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
 
             <form id="vehicles_form">
 
-                <fieldset style="border: solid 3px moccasin; border-radius:5px;">
+                <fieldset style="border: solid 3px moccasin; border-radius:5px; width: 100%;">
                     <legend>Vehicles Owned</legend>
 
                     <label>
@@ -57,31 +58,46 @@
         </div >
 
             <div class="radio-div">
-
-                <fieldset>
+                <form>
+                <fieldset style="border: solid 3px moccasin; border-radius:5px; width: 100%; padding: 0; padding-right:10px;">
+                    <legend> Question 1</legend>
                     <p class="questions">What is classified as a motorised vehicle?</p>
 
                     <label>
                         Scooter
-                        <input class="radio" type="radio" name="correct" value="Scooter">
-                    </label>
+                        <input class="radio" type="radio" name="answer" value="Scooter" title="correct">
+                    </label><br>
 
                     <label>
                         Bicycle
-                        <input class="radio" type="radio" name="incorrect" value="Bicycle">
-                    </label>
+                        <input class="radio" type="radio" name="answer" value="Bicycle">
+                    </label><br>
 
                     <label>
-                        Car
-                        <input class="radio" type="radio" name="correct" value="Car">
-                    </label>
+                        Paddle-Board
+                        <input class="radio" type="radio" name="answer" value="Paddle-board">
+                    </label><br>
 
                     <label>
                         Roller-skates
-                        <input class="radio" type="radio" name="incorrect" value="Roller-skates">
-                    </label>
+                        <input class="radio" type="radio" name="answer" value="Roller-skates">
+                    </label><br>
+
+                    <button id="confirm-selection-btn">
+                        Confirm
+                    </button>
+
                 </fieldset>
+                </form>
+
+                <div id="radio-result">
+                    <h2> Result:</h2>
+                <p id="display-radio-res"></p>
+                    <button id="clear-radio">Clear Result</button>
+                </div>
+
             </div>
+
 
 
     </div>

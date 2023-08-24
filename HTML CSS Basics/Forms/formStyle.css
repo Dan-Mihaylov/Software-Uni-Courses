@@ -12,7 +12,9 @@ body {
 }
 
 form {
+    display: flex;
     max-width: 300px;
+    min-height: 200px;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     padding: 20px;
@@ -38,11 +40,41 @@ button {
 }
 
 .radio-div {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
     min-width: 350px;
 }
 
-.radio-div {
-    position: relative;
-    cursor: pointer;
-    border: 0cap;
+
+#radio-result {
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    opacity: 0;
+}
+
+
+@media (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .form-div,
+    .radio-div {
+        min-width: 100%;
+    }
+
+    form,
+    .radio-div fieldset {
+        max-width: 100%;
+    }
+
+    #result-div,
+    #radio-result {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
 }
