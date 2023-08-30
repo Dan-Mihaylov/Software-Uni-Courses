@@ -3,7 +3,7 @@ body {
     display: flex;
     background-color: rgba(2, 43, 58, 1);
     margin: 0;
-    color: rgba(0,0,0,0.7)
+    color: rgba(0,0,0,0.7);
     justify-content: center;
     align-items: center;
 }
@@ -77,7 +77,7 @@ body {
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0,0,0,1);
     background-color: rgba(225, 229, 242);
 }
 
@@ -91,13 +91,12 @@ body {
 
 .header {
     position: relative;
-
     width: 95%;
     max-width: 1000px;
     text-align: center;
     src: url(fonts/Mandala Design.otf);
     font-size: 50px;
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.6);
     border-radius: 5px;
     margin-bottom: 50px;
 }
@@ -157,12 +156,66 @@ body {
 }
 
 .footer-div {
-    margin-bottom: 50px;
-    margin-top: 50px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     width: 100%;
-    background-color: rgba(2, 43, 58, 0.9)
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: rgba(0,0,0, 0.4);
+    color: rgba(0,0,0, 0.6);
+    font-size: 14px;
+    text-align: justify;
+}
+
+.footer-info {
+    flex: 1;
+    max-width: 35%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.copyright {
+    font-size: 10px;
+    position: relative;
+
+}
+
+.copyrightdiv {
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: flex-end; 
+    min-height: 150px;
+    text-align: center;
+}
+
+.contact-info {
+    flex: 1;
+    max-width: 35%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding-right: 20px;
+
+}
+
+.last-contact {
+    list-style: none;
+    
+}
+
+.contact-info .last-contact li a {
+    color: rgba(0,0,0, 0.6);
+    text-decoration: none;
+    display: inline;
+    font-size: 18px;
+  }
 
 
 @media (max-width: 1000px) {
@@ -268,6 +321,7 @@ body {
     }
 
     .links a {
+        color: #000;
 
     }
     .nav-img {
@@ -281,6 +335,47 @@ body {
         max-width: 60%;
     }
 
-    .links a img {
-    }
+   .footer-div {
+    margin-bottom: 250px;
+   }
+
+   .footer {
+    display: block;
+    justify-content: center;
+    padding: 20px;
+   }
+
+   .footer-info {
+    position: relative;
+    text-align: center;
+    top: 10px;
+    left: 20%;
+    max-width: 60%;
+    margin-left: 0;
+    margin-right: 0;
+   }
+
+   .contact-info {
+    position: relative;
+    left: 20%;
+    bottom: 18px;
+    max-width: 56%;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    padding-left: 0px;
+    text-align: center;
+   }
+
+   .copyrightdiv {
+    text-align: center;
+   }
+
+   .copyright {
+    position: relative;
+    text-align: center;
+    top: 140px;
+    left: 20%;
+    max-width: 60%;
+   }
 }
