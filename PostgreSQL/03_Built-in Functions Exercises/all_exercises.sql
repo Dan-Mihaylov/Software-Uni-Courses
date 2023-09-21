@@ -3,7 +3,7 @@
 
 -- 02. Concatenate Geography Data
 
-CREATE VIEW view_continents_countries_currencies_details AS
+CREATE OR REPLACE VIEW view_continents_countries_currencies_details AS
 SELECT
 	CONCAT(c1.continent_name, ': ', c1.continent_code) AS "Continent Details",
 	CONCAT_WS(' - ', c2.country_name, c2.capital, c2.area_in_sq_km, 'km2') AS "Country Information",
@@ -26,11 +26,20 @@ SELECT
 	SUBSTRING(description FROM 5) AS "substring"
 FROM currencies;
 
+-- SELECT
+--     RIGHT(description, -4) as "Right Side"
+-- FROM currencies;
+
 -- 05. Substring River Length
 
 SELECT
 	(REGEXP_MATCHES("River Information", '([0-9]{1,4})'))[1] AS river_length
 FROM view_river_info;
+
+-- SELECT
+--     SUBSTRING("River Information", '([0-9]{1,4})') AS "River Length"
+-- FROM
+--     view_river_info
 
 -- 06. Replace A
 
@@ -129,26 +138,38 @@ WHERE
 
 -- 18. Arithmetical Operators
 
-CREATE TABLE
+CREATE TABLE IF NOT EXISTS
     bookings_calculation
-    AS
-SELECT
-    booked_for
+AS SELECT
+       booked_for,
+       CAST(booked_for * 50 AS NUMERIC) AS "multiplication",
+       CAST(booked_for % 50 AS NUMERIC) AS "modulo"
 FROM
     bookings
 WHERE
     apartment_id = 93;
 
-ALTER TABLE
-    bookings_calculation
-ADD COLUMN multiplication NUMERIC,
-ADD COLUMN modulo NUMERIC;
 
-UPDATE
-    bookings_calculation
-SET
-    multiplication = booked_for * 50,
-    modulo = booked_for % 50;
+-- CREATE TABLE
+--     bookings_calculation
+--     AS
+-- SELECT
+--     booked_for
+-- FROM
+--     bookings
+-- WHERE
+--     apartment_id = 93;
+--
+-- ALTER TABLE
+--     bookings_calculation
+-- ADD COLUMN multiplication NUMERIC,
+-- ADD COLUMN modulo NUMERIC;
+--
+-- UPDATE
+--     bookings_calculation
+-- SET
+--     multiplication = booked_for * 50,
+--     modulo = booked_for % 50;
 
 -- 19. ROUND vs TRUNC
 
@@ -184,7 +205,7 @@ SELECT
     EXTRACT('year' FROM booked_at) AS "Year",
     EXTRACT('month' FROM booked_at) AS "Month",
     EXTRACT('day' FROM booked_at) AS "Day",
-    EXTRACT('hour' FROM booked_at) AS "Hour",
+    EXTRACT('hour' FROM booked_at AT TIME ZONE 'UTC') AS "Hour",
     EXTRACT('minute' FROM booked_at) AS "Minute",
     CEILING(EXTRACT('second' FROM booked_at)) AS "Second"
 FROM
@@ -194,11 +215,12 @@ FROM
 
 SELECT
     user_id,
-    AGE(starts_at, booked_at) AS "Early Bird"
+        AGE(starts_at, booked_at)AS "Early Bird"
 FROM
     bookings
 WHERE
-    AGE(starts_at, booked_at) > INTERVAL '10 months';
+    starts_at - booked_at >= '10 MONTHS';
+--     AGE(starts_at, booked_at) > INTERVAL '10 months';
 
 
 -- 24. Match or Not
