@@ -59,3 +59,9 @@ SELECT
 FROM books
 WHERE title LIKE('%Harry Potter%')
 ORDER BY id;
+
+-- Extract How Many Year The Authos Have Lived
+
+SELECT
+    COALESCE(AGE(died, born), CONCAT('Alive: 'AGE(NOW(), born)))  AS "Life Span"
+FROM authors;
