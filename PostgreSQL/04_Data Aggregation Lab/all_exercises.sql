@@ -92,7 +92,7 @@ SELECT
     id,
     first_name,
     last_name,
-    TO_CHAR(salary, '9999999.99') AS salary,
+    salary::NUMERIC(10,2) AS salary,
     department_id,
     CASE
         WHEN department_id = 1 THEN 'Management'
@@ -105,3 +105,42 @@ FROM
 ORDER BY
     id;
 
+
+/*
+ Another way to write CASE
+ The previous CASE is called GENERAL CASE
+ This one is called SIMPLE CASE.
+
+ SELECT
+    CONCAT(first_name, ' ', last_name) AS "Full Name",
+    CASE city_id
+        WHEN 1 THEN 'Sofia'
+        WHEN 2 THEN 'Plovdiv'
+        WHEN 3 THEN 'Pernik'
+        WHEN 4 THEN 'Bourgas'
+        WHEN 5 THEN 'Varna'
+        WHEN 6 THEN 'Khaskovo'
+    END AS "City"
+ FROM
+    person;
+
+ WHEN YOU HAVE THE SAME CASE YOU JUST WRITE IT ON TOP ONCE THEN COMPARE THE CONDITIONS.
+
+
+ SELECT
+    e.id,
+    e.first_name,
+    e.last_name,
+    e.salary::NUMERIC(10,2) AS salary,
+    e.department_id,
+    CASE e.department_id < 4
+        WHEN TRUE THEN d.name
+        ELSE 'Other'
+    END AS department
+FROM
+    employees e
+JOIN departments d ON e.department_id = d.id
+ORDER BY
+    id;
+
+ */

@@ -13,16 +13,12 @@
           <node negative="1">
             <node kind="database" negative="1">
               <name qname="@" />
-              <name qname="gringotts_db" />
               <name qname="data_aggregation_softuni_management_db" />
-              <name name="some_db" />
-            </node>
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database">
               <name qname="gringotts_db" />
-              <name qname="data_aggregation_softuni_management_db" />
+              <name qname="restaurant" />
+              <name name="restaurant :" />
+            </node>
+            <node kind="database" qname="restaurant">
               <node kind="schema" qname="public" />
             </node>
           </node>
