@@ -18,6 +18,11 @@ SELECT
 FROM
     wizard_deposits;
 
+SELECT
+    AVG(magic_wand_size)::NUMERIC(10,3) AS "Average Magic Wand Size"
+FROM
+    wizard_deposits;
+
 -- 04. MIN Deposit Charge
 
 SELECT
@@ -64,7 +69,7 @@ LIMIT
 SELECT
     deposit_group,
     is_deposit_expired,
-    FLOOR(AVG(deposit_interest)) "Deposit Interest"
+    FLOOR(AVG(deposit_interest)) AS "Deposit Interest"
 FROM
     wizard_deposits
 WHERE
@@ -283,7 +288,7 @@ SELECT
             WHEN job_title NOT LIKE('Senior%') THEN 'High-performing Employee'
         END
         ELSE 'Average-performing'
-        END AS performance_rating
+    END AS performance_rating
 FROM
     employees;
 
