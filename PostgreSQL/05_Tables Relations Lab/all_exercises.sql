@@ -47,7 +47,7 @@ CREATE TABLE peaks(
     name VARCHAR(50),
     mountain_id INT,
     CONSTRAINT fk_mountain_id
-                  FOREIGN KEY (mountain_id)
+            FOREIGN KEY (mountain_id)
                   REFERENCES mountains(id) ON DELETE CASCADE
 );
 

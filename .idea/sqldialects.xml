@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/PostgreSQL/03_Built-in Functions Lab/all_exercises.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/PostgreSQL/04_Data Aggregation Exercises/data_aggregation_all_exercises.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/PostgreSQL/04_Data Aggregation Lab/all_exercises.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/PostgreSQL/05_Table Relations Exercises/table_relations_all_exercises.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/PostgreSQL/05_Tables Relations Lab/all_exercises.sql" dialect="PostgreSQL" />
   </component>
 </project>
