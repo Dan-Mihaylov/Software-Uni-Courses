@@ -9,5 +9,6 @@
     <file url="file://$PROJECT_DIR$/PostgreSQL/05_Table Relations Exercises/table_relations_all_exercises.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/PostgreSQL/05_Tables Relations Lab/all_exercises.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/PostgreSQL/06-Subqueries And JOINs Lab/subqueries_and_joins_exericses.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/PostgreSQL/06-Subqueries and JOINs Exercises/subqueries_and_joins_exercises.sql" dialect="PostgreSQL" />
   </component>
 </project>
