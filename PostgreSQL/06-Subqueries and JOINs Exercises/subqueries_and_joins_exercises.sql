@@ -214,53 +214,49 @@ CREATE TABLE IF NOT EXISTS monasteries (
 INSERT INTO monasteries
     (monastery_name, country_code)
 VALUES
-    ('Rila Monastery ''St. Ivan of Rila', 'BG'),
-    ('Bachkovo Monastery ''Virgin Mary"', 'BG'),
-    ('Troyan Monastery ''Holy Mother''s Assumption', 'BG'),
-    ('Kopan Monastery', 'NP'),
-    ('Thrangu Tashi Yangtse Monastery', 'NP'),
-    ('Shechen Tennyi Dargyeling Monastery', 'NP'),
-    ('Benchen Monastery', 'NP'),
-    ('Southern Shaolin Monastery', 'CN'),
-    ('Dabei Monastery', 'CN'),
-    ('Wa Sau Toi', 'CN'),
-    ('Lhunshigyia Monastery', 'CN'),
-    ('Rakya Monastery', 'CN'),
-    ('Monasteries of Meteora', 'GR'),
-    ('The Holy Monastery of Stavronikita', 'GR'),
-    ('Taung Kalat Monastery', 'MM'),
-    ('Pa-Auk Forest Monastery', 'MM'),
-    ('Taktsang Palphug Monastery', 'BT'),
-    ('Sümela Monastery', 'TR');
+    ('Rila Monastery "St. Ivan of Rila"', 'BG'),
+	('Bachkovo Monastery "Virgin Mary"', 'BG'),
+	('Troyan Monastery "Holy Mother''s Assumption"', 'BG'),
+	('Kopan Monastery', 'NP'),
+	('Thrangu Tashi Yangtse Monastery', 'NP'),
+	('Shechen Tennyi Dargyeling Monastery', 'NP'),
+	('Benchen Monastery', 'NP'),
+	('Southern Shaolin Monastery', 'CN'),
+	('Dabei Monastery', 'CN'),
+	('Wa Sau Toi', 'CN'),
+	('Lhunshigyia Monastery', 'CN'),
+	('Rakya Monastery', 'CN'),
+	('Monasteries of Meteora', 'GR'),
+	('The Holy Monastery of Stavronikita', 'GR'),
+	('Taung Kalat Monastery', 'MM'),
+	('Pa-Auk Forest Monastery', 'MM'),
+	('Taktsang Palphug Monastery', 'BT'),
+	('Sümela Monastery', 'TR');
 
 ALTER TABLE
-    monasteries
+    countries
 ADD COLUMN
-    three_rivers BOOL DEFAULT FALSE;
+    three_rivers BOOLEAN DEFAULT FALSE;
 
-UPDATE monasteries
-SET three_rivers = TRUE
-FROM
-    (SELECT
-        country_code
-     FROM
-         countries_rivers
-    GROUP BY
-        country_code
-    HAVING
-        COUNT(*) > 3) AS results
-WHERE
-    monasteries.country_code = results.country_code;
+UPDATE countries AS c
+SET three_rivers = (
+        SELECT
+            COUNT(*) >= 3
+        FROM
+            countries_rivers AS cr
+        WHERE
+            cr.country_code = c.country_code
+);
 
 SELECT
-    monastery_name AS "Monastery",
-    country_name AS "Country"
+    m.monastery_name,
+    c.country_name
 FROM
-    monasteries
+    monasteries as m
 JOIN
-    countries USING (country_code)
+    countries as c USING (country_code)
 WHERE
-    three_rivers IS NOT  TRUE
+    c.three_rivers IS NOT  TRUE
 ORDER BY
     monastery_name
 ;
