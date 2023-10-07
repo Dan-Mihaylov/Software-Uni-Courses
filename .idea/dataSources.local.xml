@@ -70,6 +70,7 @@
             <node kind="database">
               <name qname="@" />
               <name qname="diablo_db" />
+              <name qname="exam_db" />
               <name qname="soft_uni" />
               <name qname="study_session_db" />
               <name qname="table_relations_geography_db" />
@@ -77,9 +78,9 @@
               <node kind="schema" qname="@" />
             </node>
             <node kind="database">
+              <name qname="bank_db" />
               <name qname="subqueries_joins_booking_db" />
               <name qname="subqueries_joins_geography_db" />
-              <name qname="bank_db" />
               <node kind="schema" qname="public" />
             </node>
           </node>
