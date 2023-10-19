@@ -162,7 +162,7 @@ CREATE TABLE exams(
 INSERT INTO exams
     (exam_name)
 VALUES
-    ('Python Advanced'),
+    ('Python Python Advanced'),
     ('Python OOP'),
     ('PostgreSQL');
 
