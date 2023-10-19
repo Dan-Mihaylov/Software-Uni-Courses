@@ -35,7 +35,7 @@ print(
     students_credits(
         "Discrete Maths-40-500-450",
         "AI Development-20-400-400",
-        "Algorithms Advanced-50-700-630",
+        "Algorithms Python Advanced-50-700-630",
         "Python Development-15-200-200",
         "JavaScript Development-12-500-480",
         "C++ Development-30-500-405",
