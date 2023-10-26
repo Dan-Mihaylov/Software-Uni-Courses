@@ -71,6 +71,8 @@
               <name qname="@" />
               <name qname="diablo_db" />
               <name qname="exam_db" />
+              <name qname="exam_three_db" />
+              <name qname="final_exam_db" />
               <name qname="soft_uni" />
               <name qname="study_session_db" />
               <name qname="table_relations_geography_db" />
@@ -86,6 +88,7 @@
             </node>
           </node>
         </introspection-scope>
+        <substitutions use-mini-cat="false" />
       </schema-mapping>
     </data-source>
   </component>
