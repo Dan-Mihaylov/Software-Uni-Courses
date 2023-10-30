@@ -1,5 +1,7 @@
 import os
 import django
+from django.db.models import QuerySet
+
 
 # Set up Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
@@ -148,6 +150,99 @@ def update_high_calorie_meals() -> None:
 
 def delete_lunch_and_snack_meals() -> None:
     Meal.objects.filter(meal_type__in=["Lunch", "Snack"]).delete()
+
+
+# 05 Dungeon
+
+
+def show_hard_dungeons() -> str:
+    hard_dungeons = Dungeon.objects.filter(difficulty="Hard").order_by("-location")
+    result = [
+        f"{dungeon.name} is guarded by {dungeon.boss_name} who has {dungeon.boss_health} health points!"
+        for dungeon in hard_dungeons
+        ]
+    return "\n".join(result)
+
+
+def bulk_create_dungeons(*args) -> None:
+    Dungeon.objects.bulk_create(*args)
+
+
+def update_dungeon_names() -> None:
+    dungeons = Dungeon.objects.all()
+
+    for dungeon in dungeons:
+        if dungeon.difficulty == "Easy":
+            dungeon.name = "The Erased Thombs"
+        elif dungeon.difficulty == "Medium":
+            dungeon.name = "The Coral Labyrinth"
+        elif dungeon.difficulty == "Hard":
+            dungeon.name = "The Lost Haunt"
+        dungeon.save()
+
+
+def update_dungeon_bosses_health() -> None:
+    Dungeon.objects.exclude(difficulty="Easy").update(boss_health=500)
+
+
+def update_dungeon_recommended_levels() -> None:
+    dungeons = Dungeon.objects.all()
+
+    for dungeon in dungeons:
+        if dungeon.difficulty == "Easy":
+            dungeon.recommended_level = 25
+        elif dungeon.difficulty == "Medium":
+            dungeon.recommended_level = 50
+        elif dungeon.difficulty == "Hard":
+            dungeon.recommended_level = 75
+        dungeon.save()
+
+
+def update_dungeon_rewards() -> None:
+    Dungeon.objects.filter(boss_health=500).update(reward="1000 Gold")
+    Dungeon.objects.filter(location__startswith="E").update(reward="New dungeon unlocked")
+    Dungeon.objects.filter(location__endswith="s").update(reward="Dragonheart Amulet")
+
+
+def set_new_locations() -> None:
+    Dungeon.objects.filter(recommended_level=25).update(location="Enchanted Maze")
+    Dungeon.objects.filter(recommended_level=50).update(location="Grimstone Mines")
+    Dungeon.objects.filter(recommended_level=75).update(location="Shadowed Abyss")
+
+
+# 06 Workout
+
+
+def show_workouts() -> str:
+    workouts_information = [
+        f"{workout.name} from {workout.workout_type} type has {workout.difficulty} difficulty!"
+        for workout in Workout.objects.filter(workout_type__in=["Calisthenics", "CrossFit"])
+    ]
+    return "\n".join(workouts_information)
+
+
+def get_high_difficulty_cardio_workouts() -> QuerySet:
+    return Workout.objects.filter(workout_type="Cardio").filter(difficulty="High").order_by("instructor")
+
+
+def set_new_instructors() -> None:
+    Workout.objects.filter(workout_type="Cardio").update(instructor="John Smith")
+    Workout.objects.filter(workout_type="Strength").update(instructor="Michael Williams")
+    Workout.objects.filter(workout_type="Yoga").update(instructor="Emily Johnson")
+    Workout.objects.filter(workout_type="CrossFit").update(instructor="Sarah Davis")
+    Workout.objects.filter(workout_type="Calisthenics").update(instructor="Chris Heria")
+
+
+def set_new_duration_times() -> None:
+    Workout.objects.filter(instructor__exact="John Smith").update(duration="15 minutes")
+    Workout.objects.filter(instructor__exact="Sarah Davis").update(duration="30 minutes")
+    Workout.objects.filter(instructor__exact="Chris Heria").update(duration="45 minutes")
+    Workout.objects.filter(instructor__exact="Michael Williams").update(duration="1 hour")
+    Workout.objects.filter(instructor__exact="Emily Johnson").update(duration="1 hour and 30 minutes")
+
+
+def delete_workouts() -> None:
+    Workout.objects.exclude(workout_type__in=["Strength", "Calisthenics"]).delete()
 
 
 
