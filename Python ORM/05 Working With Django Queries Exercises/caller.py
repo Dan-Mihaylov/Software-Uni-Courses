@@ -1,6 +1,5 @@
 import os
 import django
-from django.db.models import QuerySet
 
 
 # Set up Django
@@ -12,6 +11,7 @@ django.setup()
 # Run and print your queries
 
 from main_app.models import ArtworkGallery, Meal, ChessPlayer, Dungeon, Workout, Laptop
+from django.db.models import QuerySet, Q, Case, When, Value
 
 
 # 01 Artwork
@@ -54,26 +54,58 @@ def bulk_create_laptops(*args) -> None:
 
 
 def update_to_512_GB_storage() -> None:
-    Laptop.objects.filter(brand__in=["Asus", "Lenovo"]).update(storage=512)
+    # Laptop.objects.filter(brand__in=["Asus", "Lenovo"]).update(storage=512)
+
+    # With Q object  (   | -> OR,   & -> AND   )
+
+    Laptop.objects.filter(Q(brand="Lenovo") | Q(brand="Asus")).update(storage=512)
 
 
 def update_to_16_GB_memory() -> None:
     Laptop.objects.filter(brand__in=["Apple", "Dell", "Acer"]).update(memory=16)
 
+    # With Q object
+
+    # Laptop.objects.filter(Q(brand="Apple") | Q(brand="Dell") | Q(brand="Acer")).update(memory=16)
+
 
 def update_operation_systems() -> None:
-    laptops_to_update = Laptop.objects.filter(brand__in=["Asus", "Apple", "Dell", "Lenovo"])
 
-    for laptop in laptops_to_update:
-        if laptop.brand == "Asus":
-            laptop.operation_system = "Windows"
-        elif laptop.brand == "Apple":
-            laptop.operation_system = "MacOS"
-        elif laptop.brand == "Dell":
-            laptop.operation_system = "Linux"
-        elif laptop.brand == "Lenovo":
-            laptop.operation_system = "Chrome OS"
-        laptop.save()
+    # With Cases Optimization to do only one DB hit.
+
+    Laptop.objects.update(
+        operation_system = Case(
+            When(brand="Asus", then=Value("Windows")),
+            When(brand="Apple", then=Value("MacOS")),
+            When(brand__in=("Dell", "Acer"),then=Value("Linux")),
+            When(brand="Lenovo", then=Value("Chrome OS")),
+        )
+    )
+
+    # laptops_to_update = Laptop.objects.filter(brand__in=["Asus", "Apple", "Dell", "Lenovo"])
+    #
+    # for laptop in laptops_to_update:
+    #     if laptop.brand == "Asus":
+    #         laptop.operation_system = "Windows"
+    #     elif laptop.brand == "Apple":
+    #         laptop.operation_system = "MacOS"
+    #     elif laptop.brand == "Dell":
+    #         laptop.operation_system = "Linux"
+    #     elif laptop.brand == "Lenovo":
+    #         laptop.operation_system = "Chrome OS"
+    #     laptop.save()
+
+    # Optimization with Dictionary
+
+    # OS_INFO ={
+    #     "Apple": "Mac OS",
+    #     "Asus": "Windows",
+    #     "Dell": "Linux",
+    #     "Acer": "Linux",
+    #     "Lenovo": "Chrome OS"
+    # }
+    #
+    # Laptop.objects.filter(brand__in=["Apple", "Asus", "Dell", "Acer", "Lenovo"]).update(operation_system=OS_INFO[Laptop.brand])
 
 def delete_inexpensive_laptops() -> None:
     Laptop.objects.filter(price__lt=1200).delete()
@@ -86,6 +118,8 @@ def bulk_create_chess_players(*args) -> None:
 
 
 def delete_chess_players() -> None:
+    # get the titles from the meta fields
+    # model.__meta.fields
     ChessPlayer.objects.filter(title="no title").delete()
 
 
@@ -107,6 +141,9 @@ def grand_chess_title_GM() -> None:
 
 def grand_chess_title_IM() -> None:
     ChessPlayer.objects.filter(rating__range=[2300, 2399]).update(title="IM")
+
+    # With Q
+    # ChessPlayer.objects.filter(Q(rating__gte=2300) & Q(rating__lte=2399)).update(title="IM")
 
 
 def grand_chess_title_FM() -> None:
@@ -169,16 +206,33 @@ def bulk_create_dungeons(*args) -> None:
 
 
 def update_dungeon_names() -> None:
-    dungeons = Dungeon.objects.all()
+    # Solution With 3 Filters
 
-    for dungeon in dungeons:
-        if dungeon.difficulty == "Easy":
-            dungeon.name = "The Erased Thombs"
-        elif dungeon.difficulty == "Medium":
-            dungeon.name = "The Coral Labyrinth"
-        elif dungeon.difficulty == "Hard":
-            dungeon.name = "The Lost Haunt"
-        dungeon.save()
+    # Dungeon.objects.filter(difficulty="Easy").update(name="The Erased Thombs")
+    # Dungeon.objects.filter(difficulty="Medium").update(name="The Coral Labyrinth")
+    # Dungeon.objects.filter(difficulty="Hard").update(name="The Lost Haunt")
+
+    # Optimization with Case, that will have only one query req to the database.
+    Dungeon.objects.filter(
+        Case(
+            When(dificulty="Easy", then=Value("The Erased Thombs")),
+            When(dificulty="Medium", then=Value("The Coral Labyrinth")),
+            When(dificulty="Hard", then=Value("The Lost Haunt")),
+        )
+    )
+
+    # Solution with if else getting all objects from the database.
+
+    # dungeons = Dungeon.objects.all()
+    #
+    # for dungeon in dungeons:
+    #     if dungeon.difficulty == "Easy":
+    #         dungeon.name = "The Erased Thombs"
+    #     elif dungeon.difficulty == "Medium":
+    #         dungeon.name = "The Coral Labyrinth"
+    #     elif dungeon.difficulty == "Hard":
+    #         dungeon.name = "The Lost Haunt"
+    #     dungeon.save()
 
 
 def update_dungeon_bosses_health() -> None:
@@ -186,16 +240,25 @@ def update_dungeon_bosses_health() -> None:
 
 
 def update_dungeon_recommended_levels() -> None:
-    dungeons = Dungeon.objects.all()
+    # dungeons = Dungeon.objects.all()
+    #
+    # for dungeon in dungeons:
+    #     if dungeon.difficulty == "Easy":
+    #         dungeon.recommended_level = 25
+    #     elif dungeon.difficulty == "Medium":
+    #         dungeon.recommended_level = 50
+    #     elif dungeon.difficulty == "Hard":
+    #         dungeon.recommended_level = 75
+    #     dungeon.save()
 
-    for dungeon in dungeons:
-        if dungeon.difficulty == "Easy":
-            dungeon.recommended_level = 25
-        elif dungeon.difficulty == "Medium":
-            dungeon.recommended_level = 50
-        elif dungeon.difficulty == "Hard":
-            dungeon.recommended_level = 75
-        dungeon.save()
+    # Optimized code with Cases
+    Dungeon.objects.filter(
+        Case(
+            When(difficulty= "Easy", then=Value(recommended_level=25)),
+            When(difficulty= "Medium", then=Value(recommended_level=50)),
+            When(difficulty="Hard", then=Value(recommended_level=75)),
+        )
+    )
 
 
 def update_dungeon_rewards() -> None:
@@ -243,6 +306,3 @@ def set_new_duration_times() -> None:
 
 def delete_workouts() -> None:
     Workout.objects.exclude(workout_type__in=["Strength", "Calisthenics"]).delete()
-
-
-
