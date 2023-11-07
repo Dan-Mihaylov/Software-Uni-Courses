@@ -109,7 +109,6 @@ class ReviewMixin(models.Model):
     review_content = models.TextField()
 
 
-
 # 04 Restaurant Review Types
 class RestaurantReview(ReviewMixin):
 
@@ -118,12 +117,10 @@ class RestaurantReview(ReviewMixin):
         verbose_name_plural = "Restaurant Reviews"
         unique_together = ["reviewer_name", "restaurant"]
 
-
     restaurant = models.ForeignKey(
         "Restaurant",
         on_delete=models.CASCADE,
     )
-
 
     rating = models.PositiveIntegerField(
         validators=[
