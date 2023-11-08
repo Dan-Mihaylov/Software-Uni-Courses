@@ -136,7 +136,6 @@ class RegularRestaurantReview(RestaurantReview):
 class FoodCriticRestaurantReview(RestaurantReview):
 
     class Meta(RestaurantReview.Meta):
-        ordering = ["-rating"]
         verbose_name = "Food Critic Review"
         verbose_name_plural = "Food Critic Reviews"
 
