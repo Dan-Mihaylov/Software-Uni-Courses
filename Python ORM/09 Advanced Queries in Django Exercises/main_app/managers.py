@@ -2,6 +2,7 @@ from _decimal import Decimal
 from django.db.models import Manager
 from django.db.models import Count, Avg
 
+
 # 01
 class RealEstateListingManager(Manager):
 
@@ -41,4 +42,3 @@ class VideoGameManager(Manager):
             result.append(round(rating["average"], 1))
 
         return round(sum(result) / len(result), 1)
-    
