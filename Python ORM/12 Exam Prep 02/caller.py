@@ -60,4 +60,59 @@ def get_last_sold_products():
     return last_sold_products
 
 
+# 05 Django Queries Part-Two
+def get_top_products():
+
+    sold_products = (
+        Product.objects
+        .annotate(count_orders=Count('orders'))
+        .filter(count_orders__gt=0)
+        .order_by('-count_orders', 'name')[:5]
+    )
+
+    result = ["Top products:"] + [
+        f"{product.name}, sold {product.count_orders} times"
+        for product in sold_products
+    ]
+
+    return "\n".join(result) if sold_products else ""
+
+
+def apply_discounts():
+
+    query = Q(is_completed=False) & Q(count_orders__gt=2)
+
+    orders = (
+        Order.objects
+        .annotate(count_orders=Count('products'))
+        .filter(query)
+        .update(total_price=F('total_price') * 0.9)
+    )
+
+    return f"Discount applied to {orders} orders."
+
+
+def complete_order():
+
+    order_to_complete = (
+        Order.objects
+        .prefetch_related('products')
+        .filter(is_completed=False)
+        .order_by('creation_date')
+        .first()
+    )
+
+    if not order_to_complete:
+        return ""
+
+    order_to_complete.products.all().update(in_stock=F('in_stock') - 1)
+
+    for product in order_to_complete.products.all():
+        if product.in_stock == 0:
+            product.is_available = False
+            product.save()
+
+    order_to_complete.is_completed = True
+    order_to_complete.save()
+    return f"Order has been completed!"
 

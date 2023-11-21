@@ -64,5 +64,3 @@ class Order(CreationDateMixin, models.Model):
     is_completed = models.BooleanField(default=False)
 
 
-
-
