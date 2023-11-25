@@ -111,7 +111,7 @@ class Migration(migrations.Migration):
    	pass
    ```
 4. Admin site customizations
-  - __str__ overide the method to visualise the object better in the admin site
+  - __str__ override the method to visualise the object better in the admin site
 
   - list_display - Select the fields you want to visualise in the admin page
     Example:
@@ -165,33 +165,33 @@ class Migration(migrations.Migration):
 
 1. CRUD overview
    - CRUD - Create, Read, Update, Delete
-   - Използваме го при:
+   - We use it with:
      - Web Development
      - Database Management
-   - Дава ни един консистентен начин, за това ние да създаваме фунцкионалност за CRUD
-   - Можем да го правим през ORM-a на Джанго
+   - It gives us a consistent way of using the CRUD methods
+   - We can do it through Django's ORM
 
-2. Мениджър в Django:
-    - Атрибут на ниво клас на модел за взаимодействия с база данни.
-    - Отговорен за CRUD
-    - Custom Manager: Подклас models.Model.
-       - Защо персонализирани мениджъри:
-         - Капсулиране на общи или сложни заявки.
-         - Подобрена четимост на кода.
-         - Избягвайме повторенията и подобряваме повторната употреба.
-         - Промяна наборите от заявки според нуждите.
+2. Django Manager :
+    - Class attribute for database operations.
+    - Responsible for CRUD methods.
+    - Custom Manager: Inherits models.Model.
+       - Why do we personalise the managers:
+         - Encapsulating common or more complex queries.
+         - Better code readability.
+         - We dodge code repeatability and improve code reuse-ability.
+         - Change the number of queries according to project needs.
 
 3. Django Queryset
-   - QuerySet - клас в пайтън, които изпозваме, за да пазим данните от дадена заявка
-   - Данните не се взимат, докато не бъдат потърсени от нас
+   - QuerySet - Django class we use to store the data from the queries
+   - The data is not collected until we ask to see them (Lazy Evaluation)
    - cars = Cars.objects.all() # <QuerySet []>
    - print(cars)  # <QuerySet [Car object(1)]>
 
    - QuerySet Features:
-     - Lazy Evaluation - примера с колите, заявката не се вика, докато данните не потрябват
-     - Retrieving objects - можем да вземаме всички обекти или по даден критерии
+     - Lazy Evaluation - The query is not executed until we ask to see the data
+     - Retrieving objects - we can take all objects, or filter according to given criteria
      - Chaining filters - MyModel.objects.filter(category='electronics').filter(price__lt=1000)
-     - query related objects - позволява ни да търсим в таблици, с които имаме релации, през модела: # Query related objects using double underscores
+     - query related objects - it allows us to look in the table in which we have relation to: # Query related objects using double underscores
 related_objects = Order.objects.filter(customer__age__gte=18)
      - Ordering - ordered_objects = Product.objects.order_by('-price')
      - Pagination
@@ -217,7 +217,7 @@ related_objects = Order.objects.filter(customer__age__gte=18)
 
 5. Django Shell and SQL Logging
    - Django Shell
-     - Дава ни достъп до целия проект
+     - Gives us access to the whole project
      - python manage.py shell
    - SQL logging
      -  Enable SQL logging
@@ -254,29 +254,29 @@ Working with Queries
 
 
 1. Useful Methods
-   - filter() - връща subset от обекти; приема kwargs; връща queryset;
-   - exclude() - връща subset от обекти; приема kwargs; връща queryset;
-   - order_by() - връща сортираните обекти; - за desc;
-   - count() - като len, но по-бързо; count връща само бройката без да му трябвата реалните обекти;
-   - get() - взима един обект по даден критерии;
+   - filter() - returns a subset of objects; takes **kwargs returns a QuerySet<[]>
+   - exclude() - returns subset of objects; takes kwargs; returns a  QuerySet<[]>;
+   - order_by() - returns the sorted objects; - for desc;
+   - count() - just like len(), but faster; count it returns only the count, without the objects;
+   - get() - gets ONE object with the given criteria;
 
 
 2. Chaning methods
-   - всеки метод работи с върнатия от предишния резултат
+   - every method works with the result from the previous one
 
 
 3. Lookup keys
-   - Използват се във filter, exclude, get;
-   - __exact __iexact - матчва точно;
-   - __contains __icontains - проверява дали съдържа;
+   - We use them in filter, exclude, get;
+   - __exact __iexact - matches exactly;
+   - __contains __icontains - checks if the substring is contained in the string;
    - __startswith __endswith
    - __gt __gte
    - __lt __lte
    - __range=(2, 5) - both inclusive
 
 4. Bulk methods
-   - използват се за да извършим операции върху много обекти едновременно
-   - bulk_create - създава множество обекти навъеднъж;
+   - we use them to use operations on one or more objects at the same time
+   - bulk_create - creates multiple objects at once;
    - filter().update()
    - filter().delete()
 
@@ -289,52 +289,52 @@ Django Models Relations
 
 1. Database Normalization
    - Efficient Database Organization
-     - Data normalization - разбива големи таблици на по-малки такива, правейки данните по-организирани
-     - Пример: Все едно имаме онлайн магазин и вместо да пазим име, адрес и поръчка в една таблица, можем да разбием на 3 таблици и така да не повтаряме записи
+     - Data normalization - breaks big tables into smaller ones, making the data more organised
+     - Example: In the case of having an online store, instead of having one table with data for Name, Address, Username, Orders we break it into several tables
 
     - Guidelines and Rules
       - First Normal Form
-      	- First Normal Form (1NF): елеминираме поврарящите се записи, всяка таблица пази уникални стойности
+      	- First Normal Form (1NF): we eliminate repeating entries, every table stores unique entries.
 
-        - Second Normal Form (2NF): извършваме първото като го правим зависимо на PK
-          - Пример: Онлайн магазин с данни и покупки Customers и Orders са свързани с PK, вместо всичко да е в една таблица
+        - Second Normal Form (2NF): executes the 1NF making the data dependent on the PK
+          - Example: Online store with data and orders Customers and Orders are connected with PK, instead of everything being in the same table
 
 	- Third Normal Form (3NF):
-          - премахване на преходни зависимости
-          - Таблица служители пази id, служител, град, адрес => разделяме ги на 3 таблици и ги навързваме, без да е задължително по PK, може и по city_id вече employee е независимо
+          - Getting rid of rel
+          - Table employees stores id, employee, city, address => we break them into 3 tables and we chain them, not only with the PK, you can with city_id now employee is independent
 
         - Boyce-Codd Normal Form (BCNF):
-          - По-строга версия на 3NF
-          - Тук правим да се навързват по PK
+          - More strict version of the 3NF
+          - Here we chain them with the PK
 
 	 - Fourth Normal Form (4NF):
-          - Ако данни от една таблица се използват в други две то това не е добре
-          - Пример: Имаме Курс X и Курс Y, на X Му трябват книгите A и B, на Y, A и C,
-            това, което правим е да направим таблица с книгите А и таблица с Книгите Б
+          - If data from one table are used in another two, that is not good
+          - Example: We have rate X and rate Y, in X you need the books A and B, in Y, A and C,
+            what we do now is create a table with books A and books B
 
          - Fifth Normal Form (5NF) - Project-Join Normal Form or PJ/NF:
-           - Кратко казано да не ни се налага да минаваме през таблици с данни, които не ни трябват, за да достигнем до таблица с данни, която ни трябва
+           - In short, that we don't need to go through tables which info we don't need to use the info that we do not need (to spare the extra JOIN's)
 
    - Database Schema Design
-      - Създаването на различни ключове и връзки между таблиците
+      - The creation of different Keys and their relations to other Keys
 
    - Minimizing Data Redundancy
-     - Чрез разбиването на таблици бихме имали отново намалено повтаряне на информация
-     - Имаме книга и копия, копията са в отделна таблица, и са линкнати към оригинала
+     - With breaking the table we will have reduced repeated information
+     - We have a book and copies, the copies are in a separate table, and they are linked to the original
 
    - Ensuring Data Integrity & Eliminating Data Anomalies
-     - Това ни помага да update-ваме и изтриваме данните навсякъде еднакво
-     - отново благодарение на някакви constraints можем да променим една стойност в една таблица и тя да се отрази във всички
+     - This helps us update and delete data in the tables, the same way everywhere
+     - Through some constraints we can delete data somewhere in a table and the changes to take place in another table
 
    - Efficiency and Maintainability
-     - Благодарение на по-малките таблици, ги query–ваме и update-ваме по-бързо
+     - Thanks to the smaller size tables, we can get query results and update/delete info faster
 
-2. Релации в Django Модели
-   - Получават се използвайки ForeignKey полета
-   - related_name - можем да направим обартна връзка
-     - По дефолт тя е името + _set
+2. Django Models Relations
+   - We can create them using the Foreignkey fields
+   - related_name - backwards relationship to the table
+     - default value is the name of the table + _set
 
-   - Пример:
+   - Example:
    ```py
    class Author(models.Model):
        name = models.CharField(max_length=100)
@@ -354,9 +354,9 @@ author_posts = author.post_set.all()
 3. Types of relationships
    - Many-To-One (One-To-Many)
    - Many-To-Many
-     - Няма значение, в кой модел се слага
-     - Django автоматично създава join таблица или още наричана junction
-     - Но, ако искаме и ние можем да си създадем:
+     - No matter in which model you are going to add the ManyToMany field
+     - Django automatically creates the join table, called also the junction table
+     - But, if we want, we can create them ourselves, using through= Attribute:
       ```py
       class Author(models.Model):
           name = models.CharField(max_length=100)
@@ -371,9 +371,9 @@ author_posts = author.post_set.all()
           publication_date = models.DateField()
       ```
 
-   - OneToOne, предимно се слага на PK
+   - OneToOne, we put it with the PK
    - Self-referential Foreign Key
-      - Пример имаме работници и те могат да са мениджъри на други работници
+      - Example: We have workers, and they can be managers to other workers
 
    ```py
    class Employee(models.Model):
@@ -381,16 +381,16 @@ author_posts = author.post_set.all()
        supervisor = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True)
    ```
 
-    - Lazy Relationships - обекта от релацията се взима, чрез заявка, чак когато бъде повикан
+    - Lazy Relationships - the object from the relation is being shown when it is being asked for
 
 ---
 
 ### Models Inheritance and Customization
 
-1. Типове наследяване
+1. Types of Inheritance
    - Multi-table
-     - Разширяваме модел с полетата от друг модел, като не копираме самите полета, а използваме създадения от django pointer, който прави One-To-One Relationship
-     - Пример:
+     - We extend a model with fields from another model, by not copying the fields, but using the Django created pointer, who makes a One-To-One Relationship
+     - Example:
 
 	```py
 	class Person(models.Model):
@@ -408,8 +408,8 @@ author_posts = author.post_set.all()
 
 
    - Abstract Base Classes
-     - При това наследяване не се създават две нови таблици, а само една и тя е на наследяващия клас(Child), като абстрактния клас(Parent) е само шаблон
-     - Постигаме го чрез промяна на Meta класа:
+     - In this inheritance, you are not creating two tables but one, that is the (Child) table, where the (Parent) table is just a blueprint
+     - We get that result by changing the Meta class:
        ```py
        class AbstractBaseModel(models.Model):
            common_field1 = models.CharField(max_length=100)
@@ -423,9 +423,9 @@ author_posts = author.post_set.all()
        ```
 
    - Proxy Models
-     - Използваме ги, за да добавим функционалност към модел, който не можем да достъпим
-     - Можем да добавяме методи, но не и нови полета
-     - Пример:
+     - We use them to add functionality to models that we cannot access
+     - We can add new methods, but not new Fields
+     - Example:
 
 	```py
 	class Article(models.Model):
@@ -445,8 +445,8 @@ author_posts = author.post_set.all()
 	        return cls.objects.filter(published_date__gte=date.today() - timedelta(days=7))
 	```
 
-2. Основни Built-In Методи
-   - `save()` - използва се за запазване на записи
+2. Basic Built-In Methods
+   - `save()` - We use it to save the entries
 	```py
 	    def save(self, *args, **kwargs):
 	        # Check the price and set the is_discounted field
@@ -458,20 +458,20 @@ author_posts = author.post_set.all()
 	        # Call the "real" save() method
 	        super().save(*args, **kwargs)
 	```
-   - `clean()` - използва се, когато искаме да валидираме логически няколко полета, например имаме тениска в 3 цвята, но ако е избран XXL цветовете са само 2.
+   - `clean()` - we use it to validate several fields, example we have a t-shirt in 3 colors, but if we choose red then we have only 2 left.
 
 
 3. Custom Model Properties
-   - Както и в ООП, можем чрез @property декоратора да правим нови атрибути, които в случая не се запазват в базата
-   - Използваме ги за динамични изчисления на стойностти
+   - Just like in OOP we can create new @property that is not going to be saved in the database
+   - We use them for dynamically calculating values
 
 4. Custom Model Fields
-   - Ползваме ги когато, Django няма field, които ни върши работа
-   - Имаме методи като:
-     - from_db_value - извиква се, когато искаме да взмем стойността от базата в пайтън
-     - to_python - извиква се когато правим десериализация или clean
-     - get_prep_value - обратното на from_db_value, от Python към базата, предимно ползваме за сериализации
-     - pre_save - използва се за last minute changes, точно преди да запазим резултата в базата
+   - We use them when Django does not have a field that we need
+   - We have methods like:
+     - from_db_value - we call it when we want to take the values from the database to the python program
+     - to_python - we call it when we do deserialization or clean
+     - get_prep_value - opposite to from_db_value, from Python to the database, mainly used for serialization
+     - pre_save - we use it for last minute changes, just before we save the data into the db
 
 	```py
 	class RGBColorField(models.TextField):
@@ -502,9 +502,9 @@ author_posts = author.post_set.all()
 
 1. Validation in Models
    - Built-in Validators
-     - MaxValueValidator, MinValueValidator - приема два аргумета (limit, message)
-     - MaxLengthValidator, MinLengthValidator - приема два аргумета (limit, message)
-     - RegexValidator - приема два аргумета (regex, message)
+     - MaxValueValidator, MinValueValidator - takes two arguments (limit, message)
+     - MaxLengthValidator, MinLengthValidator - takes two arguments (limit, message)
+     - RegexValidator - takes two arguments (regex, message)
 	```py
 	class SampleModel(models.Model):
 	    name = models.CharField(
@@ -525,15 +525,15 @@ author_posts = author.post_set.all()
 		)]  # A simple regex for validating phone numbers
 	    )
 	```
- - Custom Validators - функции, които често пишем в отделен файл. При грешка raise-ваме ValidationError
+ - Custom Validators - functions, we often write in a different file, when we have an error we raise ValidationError
 
 
 2. Meta Options and Meta Inheritance
-   - В мета класа можем да променяме:
-     - Името на таблицата
-     - Подреждането на данните
-     - Можем да задаваме constraints
-     - Можем да задаваме типа на класа(proxy, abstract)
+   - In the Meta class we can change:
+     - The name of the table
+     - The order of the data
+     - We can add constraints
+     - We can add the class type (proxy, abstract)
 	```py
 	class SampleModel(models.Model):
 	    name = models.CharField(max_length=50)
@@ -545,13 +545,13 @@ author_posts = author.post_set.all()
 	        db_table = 'custom_sample_model_table'
 
 	        # Default ordering (ascending by name)
-	        ordering = ['name'] - Случва се на SELECT, не на INSERT
+	        ordering = ['name'] - This happens on SELECT, not on INSERT
 
 	        # Unique constraint (unique combination of name and email)
 	        unique_together = ['name', 'email']
 	```
-    - Meта наследяване:
-      - Ако наследим абстрактен клас и не презапишем мета класа, то наслеяваме мета класа на абстрактния клас
+    - Meta Inheritance:
+      - When we inherit an abstract class but we don't override the Meta class, we inherit the abstract Meta class
 	```py
 	class BaseModel(models.Model):
 	    name = models.CharField(max_length=100)
@@ -566,21 +566,21 @@ author_posts = author.post_set.all()
 	```
 
 3. Indexing
-   - Индексирането ни помага, подреждайки елементите в определен ред или създавайки друга структура, чрез, която да търсим по-бързо.
-   - Бързо взимаме записи, но ги запазваме по-бавно
-   - В Django можем да сложим индекс на поле, като добавим key-word аргумента db_index=True
-   - Можем да направим и индекс, чрез мета класа, като можем да правим и композитен индекс
+   - Indexing helps us to order the elements in a particular order, helping us with the searching of the elements.
+   - Increases the speed of data retrieval, decreases the speed of data writing.
+   - In Django we can add an index to a field using the key-word argument db_index=True
+   - We can create an index using the Meta class, where we can even make a composite index
 	```py
 	class Meta:
 	indexes=[
-	models.Index(fields=["title", "author"]),  # прави търсенето по два критерия, по-бързо
+	models.Index(fields=["title", "author"]),  # makes the searching by two criteria faster
 	models.Index(fields=["publication_date"])
 	]
 	```
 
 
 4. Django Model Mixins
-   - Както знаем, миксините са класове, които използваме, за да отделим обща функционалност
+   - As we know, mixins are classes we use to separate common functionalities
 
 	```py
 	class TimestampMixin(models.Model):
@@ -595,8 +595,8 @@ author_posts = author.post_set.all()
 ### Advanced Django Queries
 
 1. Custom managers
-   - Използваме ги, за да изнсем бизнез логиката, за често използвани заявки на едно място
-   - Правим го наследявайки мениджъра по подразбиране.
+   - We use them to export the business logic we use frequently in a separate place
+   - We create it by inheriting the models.Manager class.
 
 	```py
 	    class BookManager(models.Manager):
@@ -610,24 +610,24 @@ author_posts = author.post_set.all()
 	```
 
 2. Annotations and Aggregations
-   - Анотации - използваме ги, за да добавяме нови полета във върнатия резултат, често на база някакви изчисления. Връща QuerySet.
-   - Пример:
+   - Annotations -we use them, to add new fields in the returned result, often on the basis of some calculations. It returns a QuerySet<[]>.
+   - Example:
 
 	```py
 	# Annotating the queryset to get the count of books for each author
 	authors_with_book_count = Book.objects.values('author').annotate(book_count=Count('id'))
 	```
-   - Агрегации - връщат едно поле(една стойност), често резултат от агрегиращи функции. Връща dict
+   - Aggregations - they return one field(one value), often the results of aggregate functions.It returns a dict
 
 	```py
-	# Annotating the queryset to get the average rating of all books
+	# Aggregating the queryset to get the average rating of all books
 	average_rating = Book.objects.aggregate(avg_rating=Avg('rating'))
 	```
 
 3. select_related & prefetch_related
-   - select_related - редуцира броя на заявките при One-To-One и Many-To-One заявки
-     - вместо lazily да взимаме свързаните обекти правим JOIN още при първата заявка
-     - Пример:
+   - select_related - reduces the number of queries to the database in a  One-To-One and Many-To-One queries
+     - instead lazily taking the data from the objects we do a  JOIN with the first query
+     - Example:
 
 	```py
 	from django.db import models
@@ -644,8 +644,8 @@ author_posts = author.post_set.all()
 
 	```
 
-   - prefetch_related - редуцира броя на заявките при Many-To-Many(не само) до броя на релациите + 1
-   - Пример:
+   - prefetch_related - Reduces the number of queries in Many-To-Many(not only) until the number of relations + 1
+   - Example:
 
 	```py
 	class Author(models.Model):
@@ -663,8 +663,8 @@ author_posts = author.post_set.all()
 
 4. Q and F
 
-  - Използваме Q object, за да правим заявки изискващи по-сложни условия
-  - Пример:
+  - We use the Q object, to do more complex queries
+  - Example:
 
 	```py
 	q = Q(title__icontains='Django') & (Q(pub_year__gt=2010) | Q(author='John Doe'))
@@ -673,7 +673,7 @@ author_posts = author.post_set.all()
 
 	```
 
-  - Използваме F object, за да достъпваме, стойностите през, които итерираме на ниво SQL
+  - We use F object, to access the data we iterate through, on SQL level.
 
 	```py
 	from django.db.models import F
@@ -685,15 +685,15 @@ author_posts = author.post_set.all()
 ### SQL Alchemy
 
 1. SQL Alchemy - ORM - Object Relational Mapper
-   - ORM - абстракция позволяваща ни да пишем SQL, чрез Python
-   - Core - грижи се за транзакциите, изпращането на заявки, sessions и database pooling
+   - ORM - abstraction allowing us to write SQL queries, through Python
+   - Core - it looks after the transactions, sending queries, sessions and database pooling
 
 2. SetUp:
    1. ```pip install sqlalchemy```
    2. ```pip install psycopg2```
 
-3. Модели
-   - Подобно на Django наследяваме базов клас, `Base`, който взимаме като резултат от извикването на `declarative_base()`
+3. Models
+   - Similar to Django we inherit a base class, `Base`, which we take as a result of calling the  `declarative_base()` function
 
 	```py
 
@@ -707,30 +707,30 @@ author_posts = author.post_set.all()
 	    name = Column(String)
 	```
 
-4. Миграции
+4. Migrations
 
    4.1 SetUp:
-   	- Не са включени в SQLAlchemy, за тях можем да използваме `Alembic`
+   	- Not included in SQLAlchemy, for migrations we can use  `Alembic`
 
 	- ```pip install alembic```
 
- 	- ```alembic init alembic``` - създава ни файловата структура за миграциите<\br>
+ 	- ```alembic init alembic``` - it creates the file structure for the migrations<\br>
 
 	- ```sqlalchemy.url = postgresql+psycopg2://username:password@localhost/db_name``` - във файла alembic.ini
 
- 	- ```py target_metadata = Base.metadata``` - във файла env.py, за да можем да поддържаме autogenerate
+ 	- ```py target_metadata = Base.metadata``` - in file env.py, to be able to use autogenerate
 
-   4.2 Команди:
-   	- ```alembic revision --autogenerate -m "Add User Table"``` - създава миграция със съобщени, както `makemigrations`
+   4.2 Commands:
+   	- ```alembic revision --autogenerate -m "Add User Table"``` - creates migrations with a message, just like  `makemigrations`
 
-	- ```alembic upgrade head``` - прилага миграциите, както `migrate`
+	- ```alembic upgrade head``` - it implements the migrations like `migrate`
 
-	- ```alembic downgrade -1``` - връща миграция
+	- ```alembic downgrade -1``` - it reverses a migration
 
 6. CRUD
-   - Отваряме връзка с базата, пускайки нова сесия
-   - Винаги затваряме сесията, след приключване на работа
-   - Трябва да комитнем резултата, подобно на Django, където ползвахме `save()`
+   - We open a connection with the database, by creating a new session
+   - We always close the session, after we have finished with the manipulation
+   - We have to commit() the result, just like in Django where we use `save()`
 
 	```py
 	from sqlalchemy import create_engine
@@ -832,4 +832,4 @@ author_posts = author.post_set.all()
 
 
 10. Database pooling
-```py engine = create_engine(DATABASE_URL, pool_size=10, max_overflow=20)``` - задава първоначални връзки и максимално създадени
+```py engine = create_engine(DATABASE_URL, pool_size=10, max_overflow=20)``` - it gives initial connections and maximum connections
