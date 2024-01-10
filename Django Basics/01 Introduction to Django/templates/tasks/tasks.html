@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+    <h1>This is the Tasks Page</h1>
+    <h2>Current Tasks</h2>
+
+        {% if tasks %}
+
+            {% for task in tasks %}
+                <h3> {{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <p>Due Date: {{ task.due_date }}</p>
+            {% endfor %}
+
+        {% else %}
+            <h3>{{ no_tasks }}</h3>
+        {% endif %}
+
+</body>
+</html>
