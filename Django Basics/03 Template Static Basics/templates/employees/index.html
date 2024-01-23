@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content%}
+    <h1>Hello</h1>
+
+    <div>
+    <p>Get Params</p>
+    {{ get_params }}
+    </div>
+    
+    <div>
+    <p>Ages</p>
+    <ul>
+        {% for age in ages %}
+        <li>
+            <a href="{% url 'index' %}?age={{ age }}">{{ age }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    </div>
+    
+    
+    <div>
+    <p>Redirect to employee details with a pk=7</p>
+        <a href="{% url 'employee_details' pk=7 %}">Employee Pk = 7</a>
+    </div>
+
+    <div>
+        <h1>Person Object Passed as __dict__</h1>
+        <p>{{ person_dict.first_name }}</p>
+        <p>{{ person_dict.last_name }}</p>
+        <p>{{ person_dict.items }}</p>
+    </div>
+
+
+    <div>
+    <h1>Person Created As Dict</h1>
+    <p>{{ person.first_name }}</p>
+    <p>{{ person.last_name }}</p>
+    </div>
+
+    <div>
+    <h1>Person Passed as Instance</h1>
+    <p>{{ person_1.first_name }}</p>
+    <p>{{ person_1.last_name }}</p>
+    <p>{{ person_1.full_name }}</p>
+    </div>
+
+
+    <div>
+    <h1>Filters</h1>
+    <p>There are many build-in filters that we access through the pipe " | " symbol</p>
+    <p>Truncatechars - cuts the string to the specified len</p>
+    {{ person_2.full_name|truncatechars:3 }}
+    <p>Default - gives you a defaut value if there is none</p>
+        <p> Person Age: {{ person_2.age|default:'Unknown' }}</p>
+    <p>Length - gives you the len of the object, string or list</p>
+    <p>Person first_name "{{ person_2.first_name }}" len: {{ person_2.first_name|length }}</p>
+    <p>Age List len: {{ ages|length }}</p>
+
+    <p>Date gives you a way to format and display the date</p>
+    <p>Date not-formatted: {{ date }}</p>
+    <p>Date formatted: {{ date|date:'D d M Y' }}</p>
+    </div>
+
+    <h1>Tags</h1>
+    <div>
+        <p>If-Elif-Else</p>
+        {% if ages %}
+            <p>Ages Join: {{ ages|join:', ' }}</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <p>for, for-empty</p>
+        <h2>for</h2>
+        {% for age in ages %}
+            <p>Age: {{ age }}</p>
+        {% endfor %}
+
+        <h2>for-empty</h2>
+        {% for age in ages_empty %}
+            <p>Age: {{ age }}</p>
+        {% empty %}
+            <p>Age is empty</p>
+        {% endfor %}
+    </div>
+
+    <div>
+    <h2>csrf-token "Cross Site Request Forgery Token"</h2>
+    <p>{{ csrf_token }}</p>
+    </div>
+
+    <div>
+    <h2>Lorem tag</h2>
+    <p>Gives you a placeholder text to check how text will be visualized in your app</p>
+    {% lorem 3 %}
+    </div>
+
+    <div>
+    <h2>images</h2>
+        <img class="images" src="{% static 'images/bridge.jpg' %}" alt="Photo">
+    </div>
+
+{% endblock %}

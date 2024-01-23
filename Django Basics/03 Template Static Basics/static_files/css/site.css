@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgba(43, 3, 0, 1);
+    color: burlywood;
+    text-align: center;
+}
+
+.images {
+    width: 300px;
+}
