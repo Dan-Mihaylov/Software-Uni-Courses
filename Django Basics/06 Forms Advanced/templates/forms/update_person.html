@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ttle</title>
+</head>
+<body>
+
+<form action="{% url 'update-user' user_id %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Update</button>
+</form>
+
+</body>
+</html>

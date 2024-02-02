@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>A list of all people registered:</h1>
+{% for person in people %}
+    <div style="border: 1px solid darkred">
+        <img src="{% if person.profile_image %}{{ person.profile_image.url }}{% endif %}" alt="Photo" width="80">
+        <ul>
+            <li>First Name: {{ person.first_name }}</li>
+            <li>Last Name: {{ person.last_name }}</li>
+            {% if person.age %}
+                <li>Age: {{ person.age }}</li>
+            {% endif %}
+            <li><a href="{% url 'update-user' person.id %}">Update User</a></li>
+        </ul>
+    </div>
+
+{% endfor %}
+
+<p>Pages: {{ page_obj.end_index }}</p>
+
+
+</body>
+</html>

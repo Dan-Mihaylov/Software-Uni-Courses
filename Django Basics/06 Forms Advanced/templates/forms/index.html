@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index Page</title>
+</head>
+<body>
+
+<h1>Normal Form</h1>
+<form action="{% url 'create-person' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Save</button>
+</form>
+
+<br>
+
+<h1>Form as_p</h1>
+<form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<h1>Form as_div</h1>
+<form action="{% url 'index' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <button type="submit">Save</button>
+</form>
+
+{#  This is the proper way to exclude front-end logic from back-end. #}
+<h1>Custom Form</h1>
+<form action="{% url 'create-person' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    {% for field in form %}
+        <div>
+        <label for="{{ field.id_for_label }}">
+        <strong>{{ field.label }}</strong>
+        {% if field.widget_type == "select" %}
+            {# Make select input type #}
+        {% else %}
+            {# make input field = field #}
+            <input
+                type="{{ field.widget_type }}"
+                name="{{ field.html_name }}"
+                id="{{ field.id_for_label }}"
+                class="form-control"
+            >
+        {% endif %}
+        </label>
+        </div>
+    {% endfor %}
+    
+    
+    <button type="submit">Save</button>
+</form>
+
+</body>
+</html>
