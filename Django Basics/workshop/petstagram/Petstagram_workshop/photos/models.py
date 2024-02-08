@@ -56,6 +56,9 @@ class Photo(models.Model):
 
 class Comment(models.Model):
 
+    class Meta:
+        ordering = ['-added_on']
+
     text = models.TextField(
         max_length=MAX_LENGTH_TEXT_FIELD,
         blank=False,
