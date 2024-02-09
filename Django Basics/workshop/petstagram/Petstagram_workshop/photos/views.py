@@ -1,11 +1,23 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from Petstagram_workshop.photos.models import Photo
+from .forms import CreatePhotoForm, EditPhotoForm, DeletePhotoForm
+from ..common.forms import CommentAddForm
 
 
 def photo_add(request):
-    return render(request, 'photos/photo-add-page.html')
+
+    form = CreatePhotoForm(request.POST or None, request.FILES)
+    if form.is_valid():
+        instance = form.save()
+        return redirect('home page')
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'photos/photo-add-page.html', context)
 
 
 def photo_details(request, pk):
@@ -13,20 +25,52 @@ def photo_details(request, pk):
     photo = get_object_or_404(Photo, id=pk)
     comments = photo.comments.all()
     likes = photo.likes.count()
+    comment_form = CommentAddForm()
 
     context = {
-        'photo': photo,
-        'comments': comments,
-        'likes': likes,
+        'photo':        photo,
+        'comments':     comments,
+        'likes':        likes,
+        'comment_form': comment_form,
     }
 
     return render(request, 'photos/photo-details-page.html', context)
 
 
 def photo_edit(request, pk):
-    print(pk)
-    return render(request, 'photos/photo-edit-page.html')
+    photo = get_object_or_404(Photo, id=pk)
+
+    if request.method == 'GET':
+        form = EditPhotoForm(instance=photo)
+    else:
+        form = EditPhotoForm(request.POST, request.FILES, instance=photo)
+
+        if form.is_valid():
+            instance = form.save()
+            return redirect('photo details', pk=pk)
+
+    context = {
+        'form':     form,
+        'photo':    photo,
+    }
+
+    return render(request, 'photos/photo-edit-page.html', context)
 
 
 def photo_delete(request, pk):
-    return HttpResponse('delete page')
+    photo = get_object_or_404(Photo, id=pk)
+
+    if request.method == 'GET':
+        form = DeletePhotoForm(instance=photo)
+    else:
+        form = DeletePhotoForm(request.POST, request.FILES, instance=photo)
+        if form.is_valid():
+            instance = form.save(commit=True)
+            return redirect('home page')
+
+    context = {
+        'form':     form,
+        'photo':    photo,
+    }
+
+    return render(request, 'photos/photo-delete-page.html', context)

@@ -21,11 +21,11 @@
                         <!-- Pet Name -->
                         <p>{{ pet.name }}</p>
                         <!-- Pet Edit Button -->
-                        <a href="">
+                        <a href="{% url 'pet edit' "username" pet.slug %}">
                             <img class="edit-img" src="{% static 'images/edit-pen-icon-6.jpg' %}" alt="edit button">
                         </a>
                         <!-- Pet Delete Button -->
-                        <a href="">
+                        <a href="{% url 'pet delete' "username" pet.slug %}">
                             <img class="bin-img" src="{% static 'images/icon-remove-22.jpg' %}" alt="bin button">
                         </a>
                     </div>
@@ -46,6 +46,7 @@
             <!-- Start Pet Photo Posts -->
             {% if photos %}
             {% include 'common/pet-posts.html' %}
+                {% csrf_token %}
             <!-- IF Photos End Pet Photos Post Section -->
             {% else %}
             <!-- IF NOT Photos Show No Post Image -->

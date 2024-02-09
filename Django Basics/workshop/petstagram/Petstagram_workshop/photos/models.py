@@ -10,7 +10,7 @@ MAX_LENGTH_CHAR_FIELD = 30
 
 class Photo(models.Model):
     photo = models.ImageField(
-        upload_to='pet-photos/',
+        upload_to='mediafiles/',
         validators=(validate_file_size,),
         blank=False,
         null=False,

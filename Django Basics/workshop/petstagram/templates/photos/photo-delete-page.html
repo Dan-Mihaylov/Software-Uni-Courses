@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Photo Edit{% endblock %}
+{% block title %}Photo Delete{% endblock %}
 
 {% block content %}
 
     <!-- Starts Edit Photo Section -->
     <div class="edit-delete edit-photo">
-        <h2>Edit photo</h2>
+        <h2>Delete photo</h2>
 
         <!-- Starts Edit Photo Form -->
-        <form action="{% url 'photo edit' pk=photo.id %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'photo delete' pk=photo.id %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
 
             <!-- Edit Photo Button -->
-            <button class="edit-btn" type="submit">Edit Photo</button>
+            <button class="edit-btn" type="submit">Delete Photo</button>
         </form>
         <!-- End Edit Photo Form -->
 
