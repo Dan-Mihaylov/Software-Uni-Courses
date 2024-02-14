@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}{% static 'web/index.css' %}{% endblock %}
+
+{% block content %}
+
+
+    <h1>This is FBV index page</h1>
+
+    <h2>The car objects are</h2>
+    <div class="search-div">
+        <form action="{% url 'index' %}" method="get">
+            {{ search_form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+    </div>
+
+    {% for car in object_list %}
+        <div class="car-div">
+        <p>Added on: {{ car.added_on }}</p>
+        <ul>
+            <li>Make: {{ car.make }}</li>
+            <li>Model: {{ car.model }}</li>
+            <li>Year: {{ car.year }}</li>
+            <li>Engine Type: {{ car.engine_type }}</li>
+        </ul>
+        </div>
+    {% endfor %}
+
+{% endblock %}

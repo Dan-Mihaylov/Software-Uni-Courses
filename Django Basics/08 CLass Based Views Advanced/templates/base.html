@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="{% block styles %}{% endblock %}">
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="nav-bar">
+        <ul class="nav-bar">
+            <li><a href="{% url 'index' %}">Index</a></li>
+            <li>Detail View</li>
+            <li>List View</li>
+            <li>Create Car</li>
+        </ul>
+
+    </div>
+
+    <div class="content">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+
+</div>
+
+
+</body>
+</html>

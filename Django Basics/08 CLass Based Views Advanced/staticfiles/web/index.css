@@ -1,0 +1,9 @@
+.car-div {
+    border: 1px solid rgba(18, 18, 18, 0.2);
+    margin: 5px;
+}
+
+.search-div {
+    display: flex;
+    flex-direction: row;
+}
