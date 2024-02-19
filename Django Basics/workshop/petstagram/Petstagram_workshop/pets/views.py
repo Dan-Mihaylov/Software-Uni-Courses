@@ -1,23 +1,39 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
 
 from Petstagram_workshop.pets.models import Pet
 from .forms import PetForm, PetEditForm, PetDeleteForm
 from ..common.forms import CommentAddForm
 
+from django.views import generic as views
 
-def pet_add(request):
 
-    form = PetForm(request.POST or None)
+# def pet_add(request):
+#
+#     form = PetForm(request.POST or None)
+#
+#     if form.is_valid():
+#         instance = form.save()
+#         return redirect('profile details', 1)
+#
+#     context = {
+#         'form': form,
+#     }
+#
+#     return render(request, 'pets/pet-add-page.html', context)
 
-    if form.is_valid():
-        instance = form.save()
-        return redirect('profile details', 1)
 
-    context = {
-        'form': form,
-    }
+class PetAddView(views.CreateView):
+    model = Pet
+    fields = '__all__'
+    template_name = 'pets/pet-add-page.html'
 
-    return render(request, 'pets/pet-add-page.html', context)
+    def get_success_url(self):
+        return reverse('profile details', kwargs={'pk': 1})
+
+    def get_form_class(self):
+        return PetForm
+
 
 
 def pet_details(request, username, pet_slug):
