@@ -8,21 +8,6 @@ from ..common.forms import CommentAddForm
 from django.views import generic as views
 
 
-# def pet_add(request):
-#
-#     form = PetForm(request.POST or None)
-#
-#     if form.is_valid():
-#         instance = form.save()
-#         return redirect('profile details', 1)
-#
-#     context = {
-#         'form': form,
-#     }
-#
-#     return render(request, 'pets/pet-add-page.html', context)
-
-
 class PetAddView(views.CreateView):
     model = Pet
     fields = '__all__'
@@ -35,21 +20,18 @@ class PetAddView(views.CreateView):
         return PetForm
 
 
+class PetDetailsView(views.DetailView):
 
-def pet_details(request, username, pet_slug):
+    model = Pet
+    slug_url_kwarg = 'pet_slug'     # Changing the way you pass the slug into the URL (usually it is named just slug)
+    context_object_name = 'pet'     # Changing the name of the 'object' so it is accessible in the template as 'pet'
+    template_name = 'pets/pet-details-page.html'
 
-    pet = get_object_or_404(Pet, slug=pet_slug)
-    pet_photos = pet.photos.all()
-    comment_form = CommentAddForm()
-
-    context = {
-        'pet':          pet,
-        'photos':       pet_photos,
-        'comment_form': comment_form,
-    }
-
-    return render(request, 'pets/pet-details-page.html', context)
-
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['photos'] = self.object.photos.all()
+        context['comment_form'] = CommentAddForm()
+        return context
 
 def pet_edit(request, username, pet_slug):
 

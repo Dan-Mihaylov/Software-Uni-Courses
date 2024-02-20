@@ -13,7 +13,7 @@ def home_page(request):
     search_form = SearchForm(request.GET)
 
     if search_form.is_valid() and request.GET:
-        pet_photos = pet_photos.filter(tagged_pets__name__icontains=search_form.cleaned_data['pet_name'],)
+        pet_photos = pet_photos.filter(tagged_pets__name__icontains=search_form.cleaned_data['pet_name'],).distinct()
 
     context = {
         'photos':       pet_photos,
