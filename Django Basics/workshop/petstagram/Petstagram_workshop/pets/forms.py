@@ -1,15 +1,11 @@
 from django import forms
 
 from .models import Pet
-from ..mixins.form_mixins import ReadOnlyFieldFormMixin
+from ..mixins.form_mixins import ReadOnlyFieldFormMixin, DisabledFieldFormMixin
 
 
-class PetForm(forms.ModelForm, ReadOnlyFieldFormMixin):
+class PetForm(forms.ModelForm):
     """ This is a base form for creating, editing and deleting Pets. """
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self._apply_readonly_on_fields()
 
     class Meta:
         model = Pet
@@ -34,7 +30,11 @@ class PetForm(forms.ModelForm, ReadOnlyFieldFormMixin):
         }
 
 
-class PetEditForm(PetForm):
+class PetEditForm(PetForm, ReadOnlyFieldFormMixin):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._apply_readonly_on_fields()
 
     readonly_fields = ('date_of_birth',)
 
@@ -46,9 +46,13 @@ class PetEditForm(PetForm):
         return self.instance.date_of_birth
 
 
-class PetDeleteForm(PetForm):
+class PetDeleteForm(PetForm, DisabledFieldFormMixin):
 
-    readonly_fields = ('date_of_birth', 'name', 'photo', )
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._apply_disabled_on_fields()
+
+    disabled_fields = ('date_of_birth', 'name', 'photo', )
 
     def save(self, commit=False):
         if commit:
@@ -57,4 +61,3 @@ class PetDeleteForm(PetForm):
             # self.instance.likes.delete()
             self.instance.delete()
         return self.instance
-

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load buttons %}
 
 {% block title %}Petstagram{% endblock %}
 
@@ -12,7 +13,6 @@
 
             <!-- Start Searchbar Form -->
             <form class="searchbar" method="get">
-                {% csrf_token %}
                 {{ search_form.as_p }}
                 <button>
                     <img src="{% static 'images/search.png' %}" height="18" alt="img2">
@@ -23,6 +23,35 @@
 
             <!--Start pet photos section -->
             {% include 'common/pet-posts.html' %}
+
+            <!-- Start Pagination -->
+            <div class="pagination" style="display: flex; flex-direction: column; justify-content: center;align-items: center;">
+                <div>
+                <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
+                </div>
+
+                <div>
+                <span class="step-links-buttons">
+
+                    <!-- If there are previous and next photos -->
+                    {% if page_obj.has_previous and page_obj.has_next %}
+                        {% previous_and_next_case_buttons page_obj request %}
+
+                    <!-- If there are only previous photos -->
+                    {% elif page_obj.has_previous %}
+                        {% only_previous_case_buttons page_obj request %}
+
+                    <!-- If there are only next photos -->
+                    {% elif page_obj.has_next %}
+                        {% only_next_case_buttons page_obj request %}
+                    {% endif %}
+
+                </span>
+                </div>
+            </div>
+            <!-- End Pagination -->
 
         </div>
     </div>

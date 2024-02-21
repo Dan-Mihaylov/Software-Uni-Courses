@@ -33,39 +33,51 @@ class PetDetailsView(views.DetailView):
         context['comment_form'] = CommentAddForm()
         return context
 
-def pet_edit(request, username, pet_slug):
 
-    pet = get_object_or_404(Pet, slug=pet_slug)
+class PetEditView(views.UpdateView):
+    model = Pet
+    template_name = 'pets/pet-edit-page.html'
+    form_class = PetEditForm        # Not just form
 
-    form = PetEditForm(request.POST or None, instance=pet)
-    if form.is_valid():
-        instance = form.save()
-        return redirect('pet details', username, pet_slug)
+    context_object_name = 'pet'
+    slug_url_kwarg = 'pet_slug'
 
-    context = {
-        'form':     form,
-        'username': username,
-        'pet':      pet,
-    }
+    def get_success_url(self):
+        return reverse('pet details', kwargs={'username': 'username', 'pet_slug': self.kwargs['pet_slug']})
 
-    return render(request, 'pets/pet-edit-page.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['form'] = self.get_form()
+        context['username'] = 'username'
+        return context
 
 
-def pet_delete(request, username, pet_slug):
+class PetDeleteView(views.DeleteView):
 
-    pet = get_object_or_404(Pet, slug=pet_slug)
+    model = Pet
+    template_name = 'pets/pet-delete-page.html'
+    context_object_name = 'pet'
 
-    form = PetDeleteForm(request.POST or None, instance=pet)
+    slug_url_kwarg = 'pet_slug'
 
-    if form.is_valid():
-        instance = form.save(commit=True)
-        return redirect('profile details', pk=1)
-        # This pk = 1 is going to be the user.pk when we have users
+    form_class = PetDeleteForm
 
-    context = {
-        'pet':      pet,
-        'username': username,
-        'form':     form,
-    }
+    def get_success_url(self):
+        return reverse('home page')
 
-    return render(request, 'pets/pet-delete-page.html', context)
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['username'] = 'username'
+        return context
+
+    # Easiest way to add pet instance into the form.
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.object
+        return kwargs
+
+    # Another way to get the initial object filled into the form.
+    # def get_initial(self):
+    #     return self.object.__dict__
+
+
