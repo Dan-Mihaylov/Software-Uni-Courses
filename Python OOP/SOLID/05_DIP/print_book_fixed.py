@@ -20,7 +20,7 @@ class FormatByContent(Formatter):
             return f"{obj} not the right type"
 
 
-class Printer():
+class Printer:
 
     def __init__(self, obj, formatter: Formatter):
         self.obj = obj
