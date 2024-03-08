@@ -98,6 +98,8 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
 MEDIA_URL = 'media/'
 
+AUTH_USER_MODEL = 'accounts.PetstagramUser'
+
 
 # SQL Console Logger
 # import logging.config
