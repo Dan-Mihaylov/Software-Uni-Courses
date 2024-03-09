@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from django.urls import reverse_lazy
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -99,6 +100,10 @@ MEDIA_ROOT = BASE_DIR / 'mediafiles'
 MEDIA_URL = 'media/'
 
 AUTH_USER_MODEL = 'accounts.PetstagramUser'
+
+LOGIN_REDIRECT_URL = reverse_lazy('home page')
+LOGIN_URL = reverse_lazy('login')
+LOGOUT_REDIRECT_URL = reverse_lazy('home page')
 
 
 # SQL Console Logger

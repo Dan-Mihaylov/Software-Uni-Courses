@@ -3,9 +3,9 @@ from Petstagram_workshop.accounts import views
 
 
 urlpatterns = (
-    path('register/', views.register, name='register'),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
+    path('register/', views.PetstagramRegisterView.as_view(), name='register'),
+    path('login/', views.PetstagramLoginView.as_view(), name='login'),
+    path('logout/', views.PetstagramLogoutView.as_view(), name='logout'),
     path('profile/<int:pk>/', include(
         [
             path('', views.show_profile_details, name='profile details'),

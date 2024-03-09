@@ -25,3 +25,44 @@ class PetstagramUser(auth_models.AbstractBaseUser, auth_models.PermissionsMixin)
     def __str__(self):
         return self.email
 
+
+class Profile(models.Model):
+    FIRST_NAME_MAXLENGTH = 30
+    LAST_NAME_MAXLENGTH = 30
+
+    user = models.OneToOneField(
+        PetstagramUser,
+        on_delete=models.RESTRICT,
+        related_name='profile',
+    )
+
+    first_name = models.CharField(
+        max_length=FIRST_NAME_MAXLENGTH,
+        null=True,
+        blank=True,
+    )
+
+    last_name = models.CharField(
+        max_length=LAST_NAME_MAXLENGTH,
+        null=True,
+        blank=True,
+    )
+
+    date_of_birth = models.DateField(
+        null=True,
+        blank=True,
+    )
+
+    profile_picture = models.URLField(
+        null=True,
+        blank=True,
+    )
+
+    def get_name(self):
+
+        if self.first_name and self.last_name:
+            return f'{self.first_name} {self.last_name}'
+
+        return self.first_name or self.last_name
+
+
