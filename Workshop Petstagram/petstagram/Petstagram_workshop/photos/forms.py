@@ -8,7 +8,7 @@ class BasePhotoForm(forms.ModelForm):
 
     class Meta:
         model = Photo
-        exclude = ['created_on', 'modified_on']
+        exclude = ['created_on', 'modified_on', 'user']
 
 
 class CreatePhotoForm(BasePhotoForm):

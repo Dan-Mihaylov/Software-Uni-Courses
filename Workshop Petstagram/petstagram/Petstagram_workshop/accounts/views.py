@@ -1,12 +1,13 @@
-from django.contrib.auth import get_user_model, login as auth_login, logout as auth_logout
+from django.contrib.auth import get_user_model, login as auth_login
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import views as auth_views
 
-from .forms import PetstagramUserCreationForm
-
+from .forms import PetstagramUserCreationForm, PetstagramProfileEditForm, PetstagramChangeForm
+from .mixins import ProfileOwnerRequiredMixin
+from .models import Profile
 
 UserModel = get_user_model()
 
@@ -24,19 +25,9 @@ class PetstagramRegisterView(views.CreateView):
         return result
 
 
-def login(request):
-    return render(request, 'accounts/login-page.html')
-
-
 class PetstagramLoginView(auth_views.LoginView):
     template_name = 'accounts/login-page.html'
     redirect_authenticated_user = True
-
-
-# TODO: Create a LogoutView to be consistent with the other Views
-def logout(request):
-    auth_logout(request)
-    return redirect('home page')
 
 
 class PetstagramLogoutView(auth_views.LogoutView):
@@ -49,6 +40,21 @@ def show_profile_details(request, pk):
 
 def edit_profile(request, pk):
     return render(request, 'accounts/profile-edit-page.html')
+
+
+class PetstagramProfileEditView(ProfileOwnerRequiredMixin, views.UpdateView):
+    form_class = PetstagramProfileEditForm
+    template_name = 'accounts/profile-edit-page.html'
+
+    def get_object(self, queryset=None):
+        return Profile.objects.get(user=self.request.user)
+
+    def get_success_url(self):
+        return reverse_lazy(
+            'profile details', kwargs={
+                'pk': self.object.pk,
+            }
+        )
 
 
 def delete(request, pk):

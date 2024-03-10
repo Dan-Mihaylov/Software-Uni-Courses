@@ -4,11 +4,25 @@ from django.db import models
 from Petstagram_workshop.pets.models import Pet
 from Petstagram_workshop.photos.validators import validate_file_size
 
+from django.contrib.auth import get_user_model
+
+
 MAX_LENGTH_TEXT_FIELD = 300
 MAX_LENGTH_CHAR_FIELD = 30
 
+UserModel = get_user_model()
+
 
 class Photo(models.Model):
+
+    user = models.ForeignKey(
+        UserModel,
+        related_name='photos',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=False,
+    )
+
     photo = models.ImageField(
         upload_to='mediafiles/',
         validators=(validate_file_size,),
@@ -79,10 +93,26 @@ class Comment(models.Model):
         null=False,
     )
 
+    user = models.ForeignKey(
+        UserModel,
+        related_name='comments',
+        on_delete=models.DO_NOTHING,
+        blank=True,
+        null=False,
+    )
+
 
 class Like(models.Model):
     to_photo = models.ForeignKey(
         Photo,
+        related_name='likes',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=False,
+    )
+
+    user = models.ForeignKey(
+        UserModel,
         related_name='likes',
         on_delete=models.CASCADE,
         blank=True,

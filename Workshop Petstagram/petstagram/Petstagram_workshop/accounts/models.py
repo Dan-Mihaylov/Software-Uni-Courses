@@ -32,8 +32,9 @@ class Profile(models.Model):
 
     user = models.OneToOneField(
         PetstagramUser,
-        on_delete=models.RESTRICT,
+        on_delete=models.CASCADE,
         related_name='profile',
+        primary_key=True,
     )
 
     first_name = models.CharField(
@@ -63,6 +64,7 @@ class Profile(models.Model):
         if self.first_name and self.last_name:
             return f'{self.first_name} {self.last_name}'
 
-        return self.first_name or self.last_name
+        return self.first_name or self.last_name or self.user.email
 
-
+    def __str__(self):
+        return self.user.email

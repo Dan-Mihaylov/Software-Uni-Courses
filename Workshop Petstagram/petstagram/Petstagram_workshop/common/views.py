@@ -62,12 +62,12 @@ class HomePageView(views.ListView):
 def like_functionality(request, photo_id: int):
 
     current_photo = get_object_or_404(Photo, id=photo_id)
-    liked_object = Like.objects.filter(to_photo_id=photo_id).first()
+    liked_object = Like.objects.filter(to_photo_id=photo_id, user=request.user).first()
 
     if liked_object:
         liked_object.delete()
     else:
-        like = Like(to_photo=current_photo)
+        like = Like(to_photo=current_photo, user=request.user)
         like.save()
 
     return redirect(request.META['HTTP_REFERER'] + f'#{photo_id}')
@@ -88,6 +88,7 @@ def add_comment(request, photo_id):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.to_photo = photo
+            instance.user = request.user
             instance.save()
 
     return redirect(request.META['HTTP_REFERER'] + f'#{photo_id}')

@@ -10,7 +10,12 @@ def photo_add(request):
 
     form = CreatePhotoForm(request.POST or None, request.FILES)
     if form.is_valid():
-        instance = form.save()
+        instance = form.save(commit=False)
+        instance.user = request.user
+        instance.save()
+        # If the form has a m2m field you need to call this after saving the isntance
+        form.save_m2m()
+
         return redirect('home page')
 
     context = {
@@ -18,6 +23,8 @@ def photo_add(request):
     }
 
     return render(request, 'photos/photo-add-page.html', context)
+
+# CreatePhotoView don't display the User field
 
 
 def photo_details(request, pk):

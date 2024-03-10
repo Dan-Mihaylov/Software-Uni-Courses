@@ -14,10 +14,16 @@ class PetAddView(views.CreateView):
     template_name = 'pets/pet-add-page.html'
 
     def get_success_url(self):
-        return reverse('profile details', kwargs={'pk': 1})
+        return reverse('profile details', kwargs={'pk': self.request.user.pk})
 
     def get_form_class(self):
         return PetForm
+
+    def form_valid(self, form):
+        pet_instance = form.save(commit=False)
+        pet_instance.user = self.request.user
+        pet_instance.save()
+        return super().form_valid(form)
 
 
 class PetDetailsView(views.DetailView):

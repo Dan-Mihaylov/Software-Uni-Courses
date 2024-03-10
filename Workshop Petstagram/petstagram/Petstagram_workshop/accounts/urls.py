@@ -9,7 +9,7 @@ urlpatterns = (
     path('profile/<int:pk>/', include(
         [
             path('', views.show_profile_details, name='profile details'),
-            path('edit/', views.edit_profile, name='profile edit'),
+            path('edit/', views.PetstagramProfileEditView.as_view(), name='profile edit'),
             path('delete/', views.delete, name='profile delete'),
         ]
     )),

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth import admin as auth_admin, get_user_model
 
 from .forms import PetstagramUserCreationForm, PetstagramChangeForm
-
+from .models import Profile
 
 UserModel = get_user_model()
 
@@ -33,3 +33,8 @@ class PetstagramUserAdmin(auth_admin.UserAdmin):
             },
         ),
     )
+
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'first_name', 'last_name', 'date_of_birth']

@@ -1,9 +1,22 @@
 from django.db import models
 from django.utils.text import slugify
 
+from django.contrib.auth import get_user_model
+
+
+UserModel = get_user_model()
+
 
 class Pet(models.Model):
     NAME_MAXLENGTH = 30
+
+    user = models.ForeignKey(
+        UserModel,
+        related_name='pets',
+        on_delete=models.CASCADE,
+        blank=True,
+        null=False
+    )
 
     name = models.CharField(
         max_length=NAME_MAXLENGTH
