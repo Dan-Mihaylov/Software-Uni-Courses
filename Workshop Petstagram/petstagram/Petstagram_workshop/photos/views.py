@@ -28,10 +28,12 @@ def photo_add(request):
 
 
 def photo_details(request, pk):
-
+    # TODO Optimize with prefetch related, and select related
     photo = get_object_or_404(Photo, id=pk)
     comments = photo.comments.all()
-    likes = photo.likes.count()
+    likes_info = photo.likes.all()
+    likes = likes_info.count()
+    user_liked = likes_info.filter(user=request.user)
     comment_form = CommentAddForm()
 
     context = {
@@ -39,6 +41,7 @@ def photo_details(request, pk):
         'comments':     comments,
         'likes':        likes,
         'comment_form': comment_form,
+        'user_liked': user_liked,
     }
 
     return render(request, 'photos/photo-details-page.html', context)

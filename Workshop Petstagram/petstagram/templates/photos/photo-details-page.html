@@ -15,11 +15,11 @@
                     <div class="userDetails">
 
                         <!-- Link to User Profile Details Page-->
-                        <a href="#">
+                        <a href="{% url 'profile details' photo.user.pk %}">
                             <div class="profilepic">
                                 <div class="profile_img">
                                     <div class="image">
-                                        <img src="{% static 'images/person.png' %}" alt="img8">
+                                        <img src="{{ photo.user.profile.profile_picture }}" alt="img8">
                                     </div>
                                 </div>
                             </div>
@@ -27,9 +27,9 @@
                         <h3>
 
                             <!-- Link to User Profile Details Page -->
-                            <a href="#">
+                            <a href="{% url 'profile details' photo.user.pk %}">
                                 <!-- IF user has first name and last name -->
-                                Username
+                                {{ photo.user.profile.get_name }}
                                 <!-- else -->
                                 <!-- show user username -->
                             </a>
@@ -78,9 +78,12 @@
                                     <!-- Link to Like Path -->
                                     <a href="{% url 'like' photo.id %}">
                                         <!-- if user has liked the photo -->
-                                        <!-- <i class="fa-solid fa-heart" style="color: #ed4040;"></i> -->
+                                        {% if user_liked %}
+                                            <i class="fa-solid fa-heart" style="color: #ed4040;"></i>
+                                        {% else %}
                                         <!-- else -->
-                                        <i class="fa-regular fa-heart"></i>
+                                            <i class="fa-regular fa-heart"></i>
+                                        {% endif %}
                                     </a>
                             </span>
                             <!-- End Like Button -->
