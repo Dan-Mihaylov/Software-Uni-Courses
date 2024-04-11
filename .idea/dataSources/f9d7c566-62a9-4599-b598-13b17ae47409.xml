@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="geography_db@localhost">
-  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1"/>
     <database id="2" parent="1" name="geography_db">
       <Current>1</Current>
@@ -3497,8 +3497,7 @@
     <schema id="266" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionTimestamp>2023-09-21.17:08:59.757</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-21.16:08:59</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-09-21.16:08:59</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -14047,7 +14046,7 @@
 13557||10|t|G
 13557||10|D|G
 13557||10|w|G</Grants>
-      <LocalIntrospectionTimestamp>2023-09-22.11:54:14</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-09-22.11:54:14</LastIntrospectionLocalTimestamp>
       <ObjectId>13209</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -15225,7 +15224,7 @@
 12336||10|t|G
 12336||10|D|G
 12336||10|w|G</Grants>
-      <LocalIntrospectionTimestamp>2023-09-22.11:54:14</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-09-22.11:54:14</LastIntrospectionLocalTimestamp>
       <ObjectId>11</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -15234,8 +15233,7 @@
       <Comment>standard public schema</Comment>
       <Current>1</Current>
       <IntrospectionStateNumber>3074</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-09-25.18:40:12.653</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-25.17:40:12</LocalIntrospectionTimestamp>
+      <LastIntrospectionLocalTimestamp>2023-09-25.17:40:12</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>518</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -15243,7 +15241,7 @@
     <sequence id="999" parent="998" name="categories_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>32939</ObjectId>
-      <SequenceIdentity>1(6)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>890</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -15251,7 +15249,7 @@
     <sequence id="1000" parent="998" name="departments_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>32918</ObjectId>
-      <SequenceIdentity>1(6)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>888</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -15259,7 +15257,7 @@
     <sequence id="1001" parent="998" name="employees_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>32925</ObjectId>
-      <SequenceIdentity>1(12)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>889</StateNumber>
       <OwnerName>postgres</OwnerName>
@@ -15267,7 +15265,7 @@
     <sequence id="1002" parent="998" name="products_id_seq">
       <DasType>integer|0s</DasType>
       <ObjectId>32946</ObjectId>
-      <SequenceIdentity>1(16)</SequenceIdentity>
+      <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
       <StateNumber>891</StateNumber>
       <OwnerName>postgres</OwnerName>
