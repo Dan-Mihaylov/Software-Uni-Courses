@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+
+
+<body>
+    <h1>Movies</h1>
+    <button id="fetchMovies">Fetch Movies</button>
+    <div id="movieContainer">
+    </div>
+    
+    
+    <h2>Add New Movie</h2>
+    <form id="addMovieForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="year">Year:</label>
+        <input type="text" name="year" id="year"><br><br>
+        <label for="genre">Genre:</label>
+        <input type="text" name="genre" id="genre"><br><br>
+        <label for="director">Director:</label>
+        <input type="text" name="director" id="director"><br><br>
+        <input type="submit" value="Add Movie">
+    </form>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            $('#fetchMovies').click(function() {
+                $.ajax({
+                    url: '/api/movies/',
+                    success: function(data) {
+                        $('#movieContainer').empty();
+                        displayMoviesWithDelay(data, 0);
+                    }
+                });
+            });
+            
+            $('#addMovieForm').submit(function(event) {
+                event.preventDefault();
+
+                // Serialize form data into JSON format
+                let formData = {
+                    title: $('#title').val(),
+                    year: $('#year').val(),
+                    genre: $('#genre').val(),
+                    director: $('#director').val(),
+                };
+
+                // send POST request to create a new movie
+                $.ajax({
+                    url: '/api/movies/',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    success: function () {
+                        $('#fetchMovies').click();
+                    }
+                });
+            });
+    
+            function displayMoviesWithDelay(movies, index) {
+                if (index < movies.length) {
+                    let movie = movies[index];
+                    $('#movieContainer').append('<h2>' + movie.title + '</h2>');
+                    $('#movieContainer').append(
+                        '<ul>' +
+                        '<li>' + movie.year + '</li>' +
+                        '<li>' + movie.genre + '</li>' +
+                        '<li>' + movie.director + '</li>' +
+                        '</ul>'
+                    );
+                    setTimeout(function() {
+                        displayMoviesWithDelay(movies, index + 1);
+                    }, 1000); // 1 second delay
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
