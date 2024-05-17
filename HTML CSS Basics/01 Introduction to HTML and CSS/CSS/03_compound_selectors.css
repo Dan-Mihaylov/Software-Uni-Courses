@@ -1,0 +1,39 @@
+.container-1 p:first-child {
+    color: rgb(59, 154, 218);
+    font-size: 1.2rem;
+}
+
+#container-2  {
+    background-color: rgb(226, 194, 9);
+}
+
+#container-2 p {
+    padding: 20px;
+}
+
+ul li:first-child {
+    color: #55f;
+}
+
+ul li:last-child {
+    color: #c22;
+    font-style: italic;
+    font-weight: 800;
+}
+
+ul:nth-child(4) {
+    list-style-type: none;
+}
+
+ul:nth-child(4) > li:first-child {
+    margin-bottom: 10px;
+}
+
+ul:last-child li input {
+    border: 2px solid #192;
+    font-size: 1.2em;
+}
+
+ul:last-child li:first-of-type input {
+    border: 2px dashed #440;
+}

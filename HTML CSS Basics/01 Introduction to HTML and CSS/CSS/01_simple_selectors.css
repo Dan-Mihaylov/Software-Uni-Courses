@@ -1,0 +1,36 @@
+h1 {
+    color: #241;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+.highlight {
+    background-color: #1e0;
+}
+
+div p {
+    background-color: #1e0;
+}
+
+#main-title {
+    color: #402;
+}
+
+#special-paragraph {
+    font-style: oblique;
+}
+
+div {
+    border: 1px dashed;
+}
+
+ul {
+    color: #600;
+    list-style-type: circle;
+}
+
+ul li:nth-child(2) {
+    background-color: antiquewhite;
+}

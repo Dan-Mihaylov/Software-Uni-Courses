@@ -1,0 +1,26 @@
+div p {
+    color: #00d;
+}
+
+ul > li {
+    list-style-type: circle;
+}
+
+/* Adjacent sibling combinator */
+p + p {
+    background-color: antiquewhite;
+}
+li ol li {
+    background-color: #aaa;
+    color: #004;
+}
+
+/* General sibling, span that is a sibling to the p */
+p ~ span {
+    color: #c00;
+    font-weight: 800;
+}
+
+ul ol {
+    list-style-type:lower-greek;
+}
