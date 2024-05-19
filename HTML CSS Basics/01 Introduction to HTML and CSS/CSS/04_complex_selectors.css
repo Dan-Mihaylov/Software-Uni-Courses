@@ -1,0 +1,37 @@
+nav ul a {
+    text-decoration: none;
+    color: #22a;
+}
+
+div nav ul a:first-child {
+    font-weight: 600;
+}
+
+div nav ul a:last-child {
+    font-style: italic;
+}
+
+h1::before {
+    content: " <<";
+    color: #f36;
+}
+
+h1::after {
+    content: " >>";
+    color: #f36;
+}
+
+div[name^="cont"] {
+    background-color: #3bf;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+p[name$="nfo"] {
+    font-size: 1.1em;
+}
+
+div:last-of-type {
+    background-color: #aaa;
+}
+
