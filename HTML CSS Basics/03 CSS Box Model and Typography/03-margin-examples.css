@@ -1,0 +1,20 @@
+*, body {
+    box-sizing: border-box;
+}
+
+div {
+    border: 2px solid black;
+    padding: 20px
+}
+
+.uniform-margin {
+    margin: 20px;
+}
+
+div:nth-child(2) {
+    margin: 10px 30px 20px 40px;
+}
+
+div[name="negative"] {
+    margin: -20px;
+}

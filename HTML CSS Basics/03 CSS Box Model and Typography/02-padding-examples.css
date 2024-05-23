@@ -1,0 +1,16 @@
+div {
+    border: 2px solid black;
+    margin: 0 0 1.5em 0;
+}
+
+div:first-child {
+    padding: 20px;
+}
+
+div:nth-child(2) {
+    padding: 10px 30px 20px 40px;
+}
+
+div:last-of-type {
+    padding: 5%;
+}
