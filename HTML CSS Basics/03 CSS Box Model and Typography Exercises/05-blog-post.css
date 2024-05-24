@@ -1,0 +1,50 @@
+@import 'reset.css';
+@import 'typography.css';
+
+
+* {
+    font: 16px/1.5 Lato, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Lato, sans-serif;
+    margin-top: 0;
+}
+
+.container {
+    border: 1px solid #ccc;
+    border-radius: 0.3em;
+    margin: 2em auto;
+    max-width: 900px;
+    padding: 2em;
+}
+
+.container article section p:nth-child(1) {
+    font-size: 1.2em;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h3 {
+    margin-top: 1em;
+    font-weight: bold;
+}
+
+article footer p{
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+time {
+    font-style: italic;
+    font-weight: bold;
+}
+
+strong {
+    font-weight: bold;
+    font-style: italic;
+}
+
+

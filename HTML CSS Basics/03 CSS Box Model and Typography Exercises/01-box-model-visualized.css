@@ -1,0 +1,55 @@
+* {
+    box-sizing: border-box;
+}
+
+div {
+    border: 1px dashed #666;
+}
+
+.container {
+    width: 600px;
+    background-color: lightsalmon;
+    margin: 2em auto;
+}
+
+.container::before {
+    display: block;
+    content: "margin";
+    padding-left: 1em;
+    margin-bottom: -1em;
+}
+
+.margin {
+    background-color: antiquewhite;
+    margin: 2em;
+}
+
+.margin::before {
+    display: block;
+    content: "border";
+    padding-left: 1em;
+    margin-bottom: -1em;
+}
+
+
+.border {
+    margin: 2em;
+    background-color: lightgreen;
+}
+
+.border::before {
+    display: block;
+    content: "padding";
+    padding-left: 1em;
+    margin-bottom: -1em;
+}
+
+.padding {
+    text-align: center;
+    background-color: lightgreen;
+    margin: 2em;
+}
+
+.content {
+    background-color: lightblue;
+}
