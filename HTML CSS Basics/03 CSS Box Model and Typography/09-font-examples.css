@@ -1,0 +1,25 @@
+div {
+    border: 2px solid #333;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+div:nth-child(1) {
+    font-family: Arial, sans-serif;
+}
+
+div:nth-child(2) {
+    font-size: 24px;
+}
+
+div:nth-child(3) {
+    font-weight: bold;
+}
+
+div:nth-child(4) {
+    font-style: italic;
+}
+
+div:nth-child(5) {
+    font-variant: small-caps;
+}
