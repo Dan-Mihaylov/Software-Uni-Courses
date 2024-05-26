@@ -1,0 +1,96 @@
+/* * {
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+*::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+.container {
+    margin: 2em auto;
+    max-width: 900px;
+}
+
+details {
+    padding: 1em;
+    border: 1px solid #ccc;
+}
+
+details::before {
+    display: block;
+    content: ">";
+}
+
+summary {
+    font-weight: bold;
+}
+
+details p:first-of-type {
+    margin-top: 1em;
+}
+
+details p {
+    margin-bottom: 1em;
+}
+
+details p:last-child {
+    margin-bottom: 0;
+} */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font: 14px/1.5 Lato, sans-serif;
+    padding: 2em;
+}
+
+p {
+    padding-bottom: 1em;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.accordion {
+    border: 1px solid #ddd;
+}
+
+.accordion details + details {
+    border-top: 1px solid #ddd;
+}
+
+.accordion details {
+    padding: 1em 1.3em;
+}
+
+.accordion details summary {
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.accordion details summary:before {
+    display: inline-block;
+    content: '>';
+    margin-right: 0.5em;
+}
+
+.accordion details[open] summary {
+    padding-bottom: 1em;
+}
+
+.accordion details[open] summary:before {
+    content: '^';
+    transform: rotate(180deg);
+}
