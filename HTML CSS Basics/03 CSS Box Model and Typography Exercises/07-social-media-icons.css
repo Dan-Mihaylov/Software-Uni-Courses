@@ -1,0 +1,45 @@
+* {
+    font-family: Lato, sans-serif;
+}
+
+*::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 2em;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.socials {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.socials li {
+    display: inline-block;
+    margin-right: 0.5em;
+
+}
+
+.socials li a {
+    display: block;
+    width: 3em;
+    font-size: 2em;
+    line-height: 3em;
+    aspect-ratio: 1/1;
+    text-align: center;
+    align-content: center;
+    background: #eee;
+    border-radius: 50%;
+    color: #000;
+}

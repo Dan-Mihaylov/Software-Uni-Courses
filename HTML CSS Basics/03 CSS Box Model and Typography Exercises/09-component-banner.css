@@ -1,0 +1,28 @@
+* {
+    font-family: Lato, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.banner {
+    background-image: url("09-image.jpg");
+    min-height: max(35vh, 550px);
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner header {
+    font-size: 1.8em;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 1.2em black;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%)
+}
