@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Grow</title>
+    <link rel="stylesheet" href="08-flex-grow.css">
+</head>
+<body>
+    <h1>flex-grow</h1>
+
+    <h2>flex-grow: 0; (default)</h2>
+    <div class="flex-container">
+        <div class="flex-item">
+            <p>1</p>
+        </div>
+        <div class="flex-item">
+            <p>2</p>
+        </div>
+        <div class="flex-item">
+            <p>3</p>
+        </div>
+    </div>
+
+    <h2>flex-grow: 1;</h2>
+    <div class="flex-container flex-grow-1">
+        <div class="flex-item">
+            <p>1</p>
+        </div>
+        <div class="flex-item">
+            <p>2</p>
+        </div>
+        <div class="flex-item">
+            <p>3</p>
+        </div>
+    </div>
+
+    <h2>flex-grow, grow 2nd child only</h2>
+    <div class="flex-container flex-grow-2nd-child-only">
+        <div class="flex-item">
+            <p>1</p>
+        </div>
+        <div class="flex-item">
+            <p>2</p>
+        </div>
+        <div class="flex-item">
+            <p>3</p>
+        </div>
+    </div>
+
+    <h2>flex-grow, grow proportionally (1, 2, 3)</h2>
+    <div class="flex-container flex-grow-proportionally">
+        <div class="flex-item">
+            <p>1</p>
+        </div>
+        <div class="flex-item">
+            <p>2</p>
+        </div>
+        <div class="flex-item">
+            <p>3</p>
+        </div>
+    </div>
+
+
+</body>
+</html>

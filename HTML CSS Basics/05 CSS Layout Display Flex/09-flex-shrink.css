@@ -1,0 +1,36 @@
+html {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.flex-container {
+    display: flex;
+    width: 400px;
+    border: 2px solid blue;
+    padding: 1em;
+    align-items: flex-start;
+}
+
+.flex-item {
+    background-color: #eee;
+    padding: 20px;
+    border: 2px solid black;
+    width: 400px;
+}
+
+.flex-shrink-0 div {
+    flex-shrink: 0;
+}
+
+.flex-shrink-2nd div {
+    flex-shrink: 0;
+}
+
+.flex-shrink-2nd div:nth-child(2) {
+    flex-shrink: 1;
+}

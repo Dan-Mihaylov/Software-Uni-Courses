@@ -1,0 +1,44 @@
+html {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.flex-container {
+    display: flex;
+    width: 400px;
+    border: 2px solid blue;
+    padding: 1em;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    background-color: #eee;
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.flex-grow-1 div {
+    flex-grow: 1;
+}
+
+.flex-grow-2nd-child-only div:nth-child(2) {
+    flex-grow: 1;
+}
+
+.flex-grow-proportionally div:nth-child(1) {
+    flex-grow: 1;
+}
+
+.flex-grow-proportionally div:nth-child(2) {
+    flex-grow: 2;
+}
+
+.flex-grow-proportionally div:nth-child(3) {
+    flex-grow: 3;
+}
