@@ -1,0 +1,61 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+    background-color: #eee;
+    padding: 2em;
+}
+
+.container {
+    margin: auto;
+    max-width: 1000px;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    text-align: center;
+    overflow: hidden;
+    padding: 1px;
+}
+
+.container * {
+    border: 1px solid #ccc;
+}
+
+.container .main {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 1 90%;
+    border-radius: 0.3em 0 0 0.3em;
+}
+
+.main .header {
+    padding: 2em;
+    flex: 1 0 100%;
+}
+
+.main .weekdays {
+    flex: 1 1 auto;
+    padding: 2em;
+}
+
+
+.aside {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 0 0.3em 0.3em 0;
+    border-left: none;
+}
+
+.aside .sidenotes {
+    flex: 1 1 100%;
+    padding: 2em;
+    border-left: none;
+}
