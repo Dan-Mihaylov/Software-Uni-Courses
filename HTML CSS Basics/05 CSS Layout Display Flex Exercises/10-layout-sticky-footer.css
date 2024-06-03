@@ -1,0 +1,38 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    gap: 2em;
+    padding: 2em;
+    border: 2px solid green;
+}
+
+header {
+    min-width: 100%;
+    border: 2px solid blue;
+    padding: 2em;
+}
+
+main {
+    padding: 2em;
+    border: 2px solid blue;
+    flex: 1 1 100%;
+
+}
+
+footer {
+    padding: 2em;
+    border: 2px solid blue;
+    flex: 0 1 100%;
+}
