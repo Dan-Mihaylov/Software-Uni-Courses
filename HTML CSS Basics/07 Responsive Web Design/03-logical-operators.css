@@ -1,0 +1,55 @@
+@media all {
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font: 14px/1.5 Lato, sans-serif;
+        padding: 2em;
+    }
+
+    body::before {
+        background-color: #369;
+        padding: 1em;
+        border-radius: 0.3em;
+        color: #fff;
+    }
+
+    p {
+        margin-bottom: 1.5em;
+    }
+
+    pre {
+        margin-bottom: 1.5em;
+        background-color: #333;
+        color: #fff;
+        padding: 1em;
+        border-radius: 0.3em;
+        box-shadow: 0 0.1em 1em 0 rgb(0,0,0,0.2);
+        overflow: auto;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1200px) {
+    body::before {
+        display: block;
+        content: 'The viewport width is larger than 800px and smaller than 1200px';
+    }
+}
+
+
+@media not (max-width: 1200px) {
+    body::before {
+        display: block;
+        content: 'The viewport width is larger than 1200px';
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    body::before {
+        display: block;
+        content: 'The device is using a screen and the viewport width is larger than 800px';
+    }
+}

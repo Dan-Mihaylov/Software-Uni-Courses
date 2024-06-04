@@ -1,0 +1,52 @@
+
+body::before {
+    background-color: #369;
+    color: #fff;
+    padding: 1em 1.5em;
+    margin-bottom: 2em;
+    border-radius: 0.3em;
+}
+
+@media all {
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 2em;
+    }
+
+    html {
+        font: 14px/1.5 Lato, serif-sans;
+    }
+
+    p {
+        padding-bottom: 1.5em;
+    }
+}
+
+@media print {
+    body::before {
+        display: block;
+        content: 'The page is using a print preview or it was prited'
+    }
+}
+
+@media screen {
+    body::before {
+        display: block;
+        content: 'The page is being shown on a screen'
+    }
+}
+
+
+pre {
+    background-color: #333;
+    padding: 1em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(80, 80, 80, 0.6);
+    color: #eee;
+}
