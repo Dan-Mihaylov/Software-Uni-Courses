@@ -1,0 +1,19 @@
+@import url('01-media-types.css');
+
+@media (hover: none) {
+    body::before {
+        display: block;
+        content: 'The device does not support hover';
+    }
+}
+
+@media (hover: hover) {
+    body::before {
+        display: block;
+        content: 'The device does support hover';
+    }
+}
+
+pre {
+    margin-bottom: 1.5em;
+}
