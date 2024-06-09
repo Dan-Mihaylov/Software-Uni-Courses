@@ -1,0 +1,121 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2em;
+    background-color: #ccc;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+p, ol, ul {
+    padding-bottom: 1.5rem;
+}
+
+ol, ul {
+    padding-left: 1.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    font-family: Lato, sans-serif;
+}
+
+h1 {font-size: 2.8rem;}
+h2 {font-size: 2.4rem;}
+h3 {font-size: 2rem;}
+h4 {font-size: 1.6rem;}
+h5 {font-size: 1.2rem;}
+h6 {font-size: 1rem;}
+
+hr {
+    color: #ccc;
+}
+
+ul ul {
+    padding-bottom: 0;
+}
+
+ul {
+    list-style: square;
+}
+
+ul ul {
+    list-style-type: disc;
+}
+
+ul ul ul {
+    list-style-type: circle;
+}
+
+table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    margin-bottom: 2em;
+}
+
+table th {
+    flex: 1 0 33%;
+    background-color: #ccc;
+    padding: 0.5em;
+}
+
+table td {
+    flex: 1 0 33%;
+    margin: 0;
+    border: 1px solid #ddd;
+    padding: 0.5em;
+}
+
+table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+table tr {
+    display: flex;
+    width: 100%;
+}
+
+blockquote {
+    margin: 0 0 2rem 2rem;
+    border-left: 3px solid #ccc;
+    padding: 1em;
+    font-style: italic;
+}
+
+blockquote p {
+    margin: 1em;
+    padding: 0;
+}
+
+blockquote cite {
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    font-weight: 600;
+}
+
+
+
+.site {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+}
+
+.site hr {
+    margin: 2rem 0;
+}
+
