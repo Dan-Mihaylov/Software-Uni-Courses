@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+
+body {
+    padding: 2em;
+    background-color: #eee;
+    color: #333;
+}
+
+.site {
+    max-width: 900px;
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+details > summary,
+ul li {
+    list-style: none;
+}
+
+details > summary ::-webkit-details-marker {
+    display: none;
+}
+
+.navigation details ul {
+    display: flex;
+    gap: 1em;
+}
+
+.navigation details ul li {
+    display: inline-block;
+}
+
+.navigation details ul li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 0.8em 1em;
+    border-radius: 0.3em;
+    background-color: orange;
+}
+
+.navigation details ul li a:hover {
+    background-color: rgb(206, 138, 13);
+} 
+
+@media not (hover:hover) {
+
+    .navigation details[open] {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+    }
+
+    .navigation details ul {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navigation details ul li {
+        background-color: aliceblue;
+        display: inline-block;
+        max-width: 230px;
+        width: 100%;
+    }
+
+    .navigation details ul li a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu-toggle:before {
+        display: block;
+        content: 'Open';
+        color: #fff;
+        background-color: orange;
+        padding: 0.8em 1em;
+        border-radius: 0.3em;
+        left: 100;
+        top: 100;
+        text-align: center;
+    }
+
+    .navigation details[open] .menu-toggle:before {
+        content: 'Close';
+        position: absolute;
+        right: 1em;
+        top: 1em;
+    }
+}
