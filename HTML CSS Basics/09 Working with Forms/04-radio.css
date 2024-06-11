@@ -1,0 +1,10 @@
+@import url('01-form-element.css');
+
+.fruit-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fruit-form p {
+    flex-basis: 100%;
+}
