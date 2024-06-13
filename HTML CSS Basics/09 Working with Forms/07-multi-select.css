@@ -1,0 +1,7 @@
+@import url('06-select.css');
+
+form select[multiple] {
+    display: block;
+    min-width: 20ch;
+    min-height: 20ch;
+}
