@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+button, body, input, form {
+    font: inherit;
+}
+
+body {
+    background-color: #eee;
+    padding: 2em;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    /* flex-wrap: wrap; */
+    width: 60em;
+    padding: 1em;
+    gap: 1em;
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+}
+
+.contact input {
+    padding: 1em 1.5em;
+    border: none;
+    background-color: #eee;
+    border-radius: 0.3em;
+}
+
+.contact input[type="email"] {
+    flex: 1 1 30em;
+}
+
+.contact input[type="submit"] {
+    flex: 1 1 11em;
+    background-color: darkorange;
+    color: #fff;
+    cursor: pointer;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: orange;
+
+}
+
+@media (max-width: 600px) {
+    .contact {
+        flex-wrap: wrap;
+    }
+
+    .contact input[type="email"] {
+        flex-basis: 50%;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .contact  input[type] {
+        /* flex-direction: column; */
+        flex: 1 0 100%;
+    }
+
+}

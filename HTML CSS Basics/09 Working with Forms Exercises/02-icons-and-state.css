@@ -1,0 +1,104 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Lato, sans-serif;
+}
+
+body, span, button, textarea, input, label {
+    font: inherit;
+}
+
+body {
+    background-color: #eee;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+    flex-basis: 35em;
+}
+
+.login fieldset {
+    padding: 2em;
+    border: none;
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset legend {
+    display: block;
+    font-size: 1.8em;
+    font-weight: bold;
+    border-bottom: 2px solid #ccc;
+    /* padding-bottom: 1.5rem; */
+    padding-top: 1rem;
+    padding-bottom: 1.5rem;
+    width: 10rem;
+}
+
+.field {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 100%;
+    margin-bottom: 1.5em;
+    position: relative;
+}
+
+.field label {
+    order: -1;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+}
+
+.field input[required] ~ label::after {
+    display: block;
+    content: '*';
+    position: absolute;
+    color: rgb(192, 16, 16);
+    top: 0;
+    right: -0.7em;
+}
+
+.field input {
+    border: 2px solid #ccc;
+    padding: 1em;
+    border-radius: 0.3em;
+    flex-basis: 100%;
+
+}
+
+.helper {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+
+input[type='submit'] {
+    padding: 1em;
+    border: none;
+    background-color: darkorange;
+    border-radius: 0.3em;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.field i {
+    position: absolute;
+    top: 0.25em;
+    right: 0;
+    font-size: 1.2em;
+}
