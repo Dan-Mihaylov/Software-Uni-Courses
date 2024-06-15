@@ -1,0 +1,222 @@
+@import url('font.css');
+@import url('reset.css');
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Infant', sans-serif;
+}
+
+body, button, textarea, input, article {
+    font: inherit;
+}
+
+
+
+.logo {
+    max-width: 110px;
+}
+
+
+.footer-logo {
+    max-width: 100px;
+}
+
+body {
+    background-image: url('images/poster.jpg');
+    background-size: 1920px 868px;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 882px;
+    width: 100%;
+    background-color: rgb(0,0,0,0.3);
+    z-index: -10;
+}
+
+/* Section Header */
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+section header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 2em 6em;
+    justify-content: space-between;
+}
+
+section header nav ul li {
+    display: inline-block;
+    list-style: none outside;
+}
+
+section header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+section header nav ul li + li {
+    margin-left: 3rem;
+}
+
+section header nav ul li:last-child {
+    margin-right: 1rem;
+}
+
+/* Section Header - end */
+
+/* Section Banner */
+
+.section-banner {
+    text-align: center;
+}
+
+.big-text {
+    flex-basis: 100%;
+    font-size: 112px;
+    padding: 14rem 20rem 5rem 20rem;
+    color: #fff;
+}
+
+.section-banner p {
+    flex-basis: 100%;
+    font-size: 1.5em;
+    color: #fff;
+    padding: 2rem 35rem 10.5rem 35rem;
+}
+
+/* Section Banned end */
+
+/* Section Testimonial */
+
+.section-testimonial {
+    background-color: #F8F0E9;
+    padding: 3rem 27rem 8rem 25rem;
+}
+
+.section-testimonial p {
+    display: block;
+    flex-basis: 100%;
+    text-align: left;
+    font-size: 1.5em;
+    opacity: 0.7;
+}
+
+.section-testimonial h2 {
+    padding-top: 5rem;
+    display: block;
+    flex-basis: 100%;
+    font-size: 4.5rem;
+    line-height: 1;
+    font-style: italic;
+    opacity: 0.8;
+}
+/* Section Testimonial end */
+
+
+/* Section Support */
+
+.section-support {
+    background-color: #E14747;
+    padding: 5rem 50rem 5rem 50rem;
+    color: #fff;
+}
+
+.section-support  h4 {
+    display: block;
+    flex-basis: 100%;
+    font-size: 1.8rem;
+    font-family: Karla, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-support p {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+/* Section Support end */
+
+/* Section Card */
+
+.section-card {
+    background-color: #F8F0E9;
+    padding: 5rem 40rem 5rem 40rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.media {
+    flex-basis: 100%;
+    background-size: cover;
+    background-image: url('images/place1.jpg');
+    min-width: 620px;
+    min-height: 460px;
+}
+
+.card article header {
+    padding: 0;
+}
+
+.card article header h2 {
+    display: block;
+    text-align: center;
+    font-size: 4.5rem;
+    width: 100%;
+    padding: 3.5rem 2rem 5rem 2rem;
+    opacity: 0.9;
+}
+
+.card article p {
+    font-size: 1.4rem;
+    opacity: 0.8;
+    margin-bottom: 5rem;
+}
+
+.container-button-left {
+    display: flex;
+    justify-content: left;
+}
+
+.container-button-left a {
+    text-decoration: none;
+    color: #000;
+    padding: 0.3rem 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+}
+
+.container-button-center {
+    display: flex;
+    justify-content: center;
+}
+
+.container-button-center a {
+    text-decoration: none;
+    color: #000;
+    padding: 0.3rem 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    margin-bottom: 5rem;
+}
