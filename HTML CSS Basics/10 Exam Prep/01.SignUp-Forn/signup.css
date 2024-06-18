@@ -1,0 +1,135 @@
+@import url('reset.css');
+
+body {
+    background-color: #C1BDBA;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.signup {
+    max-width: 47rem;
+    width: 100%;
+    background-color: #24333C;
+    padding: 3em;
+    border-radius: 0.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.2);
+}
+
+.button-container {
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.button {
+    padding: 1.3rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button:hover, .submit-button:hover {
+    background-color: #179A77;
+    color: #fff;
+}
+
+.button-sign-up {
+    background-color: #1AB188;
+    flex-basis: 50%;
+    color: #fff;
+}
+
+.button-log-in {
+    background-color: #435359;
+    flex-basis: 50%;
+    color: #aaa;
+}
+
+fieldset legend {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+fieldset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    border: none;
+}
+
+.field {
+    position: relative;
+}
+
+.field input {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 1.5rem;
+    background-color: #24333C;
+    border: 1px solid #ccc;
+    color: #ccc;
+    outline: none;
+}
+
+.field input:focus {
+    border: 1px solid #1AB188
+}
+.field input::placeholder {
+    color:#ccc;
+    font-size: 1.6rem;
+    position: relative;
+    opacity: 0;
+}
+
+
+.first-name, .last-name {
+    flex: 1 0 45%;
+}
+
+
+.email, .password {
+    flex: 1 0 100%;
+}
+
+.field label {
+    display: none;
+
+}
+
+.field input:placeholder-shown ~ label {
+    display: block;
+    position: absolute;
+    left: 1rem;
+    font-size: 1.6em;
+    top: 0.5rem;
+    color: #ccc;
+}
+
+.field label::after {
+    display: block;
+    content: '*';
+    color: #1AB188;
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    font-size: 1.6 rem;
+}
+
+.submit-button {
+    padding: 1rem;
+    background-color: #1AB188;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    flex-basis: 100%;
+    border: none;
+    cursor: pointer;
+}
+

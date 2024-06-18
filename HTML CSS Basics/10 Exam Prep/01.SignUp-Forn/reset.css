@@ -1,0 +1,17 @@
+@import url('fonts.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Kode Mono", sans-serif;
+}
+
+input, label, button, textarea, body {
+    font: inherit;
+}
+
+
