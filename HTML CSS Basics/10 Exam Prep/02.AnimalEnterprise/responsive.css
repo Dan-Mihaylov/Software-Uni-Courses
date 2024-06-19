@@ -1,0 +1,76 @@
+@media (max-width: 600px) {
+
+
+    .home-header {
+        padding-top: 1em;
+        width: 100%;
+        height: auto;
+        display: block;
+
+    }
+
+    .home-nav {
+        padding-left: 0;
+        justify-content: center;
+
+    }
+
+    .navigation-links-nav {
+        flex: 0 0 auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1em;
+    }
+
+    .navigation-links-text1 {
+        margin-left: 0;;
+    }
+
+    .blog-post-card3-blog-post-card {
+        flex-direction: column;
+    }
+
+    .blog-post-card3-image {
+        width: 100%;
+    }
+
+    .home-stats {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .home-stat {
+        flex: 1 1 45%;
+    }
+
+    .home-pricing {
+        display: block;
+    }
+
+    .home-container07 .home-text03 {
+        display: block;
+        margin-top: 4em;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .home-container06, .home-container07 {
+        display: block;
+        text-align: center;
+    }
+
+    .home-container08 {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .home-container09 {
+        margin: 2em 0 2em 0;
+        width: 100%;
+    }
+
+    .home-container10 {
+        width: 100%;
+    }
+
+}
