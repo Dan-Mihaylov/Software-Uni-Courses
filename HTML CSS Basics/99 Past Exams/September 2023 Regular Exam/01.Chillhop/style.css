@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Helvetica, sans-serif;
+}
+
+body, input, button, textarea {
+    font: inherit;
+}
+
+body {
+    padding: 2em;
+}
+
+.card {
+    margin: 0 auto;
+    max-width: 60em;
+    border-radius: 1em;
+    border: 5px solid #000;
+    background-color: #1881B6;
+    display: flex;
+    padding: 2em;
+    gap: 2em;
+}
+
+.content {
+    padding: 1em 0 1em 1em;
+    flex: 1 0 45%;
+}
+
+.content h2 {
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding-bottom: 1em;
+    padding-top: 1rem;
+}
+
+.content article h1 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: normal;
+    padding-bottom: 1rem;
+}
+
+.content article p {
+    text-indent: 3rem;
+    font-size: 0.85em;
+    line-height: 2;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 7rem 0 5rem;
+}
+
+.button {
+    text-decoration: none;
+    padding: 0.4em 1em;
+    border: 1px solid #000;
+    border-radius: 0.4em;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.button-pink {
+    color: #fff;
+    background-color: #B6416D;
+}
+
+.button-transparent {
+    color: #000;
+}
+
+.media {
+    max-width: 300px;
+    display: flex;
+}
+
+.media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
