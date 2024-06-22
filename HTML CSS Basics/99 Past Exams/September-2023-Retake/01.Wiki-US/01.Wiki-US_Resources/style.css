@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 Agbalumo, sans-serif;
+}
+
+body {
+    padding: 2em;
+}
+
+.container {
+    max-width: 60em;
+    border: 2px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header {
+    background-color: #D5EBEA;
+    padding: 1em 3em 0 1.5em;
+    flex: 1 1 100%;
+}
+
+header h1, header p {
+    display: block;
+    text-align: center;
+    border-bottom: 2px solid #000;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.4em;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2.5em 2em 6em 1.5em;
+    gap: 1.5em;
+}
+
+.left-side {
+    flex: 0 1 21.5em;
+    padding: 1em;
+    border: 2px solid #000;
+}
+
+.media {
+    display: flex;
+}
+
+.media img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.left-side p {
+    padding-top: 1.5rem;
+    font-size: 0.8em;
+    text-indent: 2rem;
+}
+
+.right-side {
+    flex: 1 1 50%;
+}
+
+.right-side p {
+    font-size: 1.2em;
+    padding-top: 2rem;
+    text-indent: 2rem;
+}
+
+footer {
+    background-color: #D5EBEA;
+    flex: 1 1 100%;
+    padding: 1em 2em 0 2.5em;
+    position: relative;
+}
+
+footer::before {
+    position: absolute;
+    top: -1.5em;
+    left: 0;
+    display: block;
+    content: 'Facts about United States';
+    color: #fff;
+    background-color: #000;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0 5rem;
+
+}
+
+footer strong, footer p {
+    font-size: 1.1em;
+}
+
+footer p {
+    padding-bottom: 0.5rem;
+}
+
+
+
+
+
