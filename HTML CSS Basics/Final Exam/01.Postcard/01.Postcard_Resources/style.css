@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font: 14px/1.5 'Gochi Hand', sans-serif;
+}
+
+body {
+    padding: 2em;
+    background-color: #eee;
+}
+
+.postcard {
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 1.3em;
+    box-shadow: 0 0 1em 0 rgb(0,0,0,0.1);
+    border: 1px solid #ccc;
+}
+
+.top-container {
+    position: relative;
+    width: 100%;
+    padding: 2em;
+    border-bottom: 1px solid #ccc;
+}
+
+.media {
+    position: relative;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    border-radius: 1.5em 1.5em 0 0;
+}
+
+.media img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.media article {
+    position: absolute;
+    bottom: 1em;
+    left: 2em;
+    right: 2em;
+    background-color: #fff;
+    border-radius: 1em;
+    padding: 1rem 1.5rem;
+}
+
+.media article h2 {
+    display: block;
+    text-align: center;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.media article p {
+    display: block;
+    text-align: center;
+    font-size: 1.25em;
+    padding-top: 0.5em;
+    line-height: 1.3;
+    color: #666666;
+}
+
+.bottom-container {
+    padding: 2em 4em;
+}
+
+.bottom-container h2 {
+    color: #333;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+}
+
+.bottom-container p {
+    color: #666666;
+    font-size: 1.3em;
+    padding-bottom: 0.5rem;
+}
+
