@@ -1,0 +1,15 @@
+function convertToJSON(fName, lName, hairColor){
+    const person = new Object();
+    person.name = fName;
+    person.lastName = lName;
+    person.hairColor = hairColor;
+    
+    const personString = JSON.stringify(person);
+    return personString;
+};
+
+
+console.log(convertToJSON('George', 'Jones', 'Brown'));
+console.log(convertToJSON('Peter', 'Smith', 'Blond'));
+
+
