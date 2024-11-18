@@ -1,0 +1,7 @@
+Execute this two docker commands.
+
+docker run -d --name mariadb_server --network mariadb_network -e MARIADB_USER=mariadb_user -e MARIADB_PASSWORD=my_cool_secret -e MARIADB_DATABASE=example_database -e MARIADB_ROOT_PASSWORD=my-secret-pw  mariadb:latest
+
+
+
+docker run -it --network mariadb_network mariadb:latest mariadb --host mariadb_server --user mariadb_user --password --database example_database
