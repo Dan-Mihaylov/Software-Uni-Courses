@@ -1,0 +1,2 @@
+Application URL:		bazarwebapp.azurewebsites.net
+GitHub Repo URL:		https://github.com/Dan-Mihaylov/SoftUniBazar-Azure-Deployment
